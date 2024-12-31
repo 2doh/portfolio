@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: {
-    initTitle: "",
+    initTitle: "목록1",
   },
   getters: {
     getTitle(state) {

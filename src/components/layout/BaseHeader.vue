@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      title: ["프로필", "프로젝트", "스킬", "스터디", "컨택"],
+      title: ["목록1", "목록2", "목록3", "목록4", "목록5"],
       activeIndex: 0,
     };
   },
