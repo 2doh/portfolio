@@ -1,25 +1,29 @@
 <template>
   <div class="header-wrap">
-    <div class="header-title-wrap">
-      <ul class="list-wrap">
-        <li
-          class="header-title"
-          v-for="(item, index) in title"
-          v-on:click="handleTitleClick(index, item)"
-          :key="index"
-          :class="{ active: activeIndex === index }"
-        >
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div class="user-icon"></div>
+    <div class="inner">
+      <div class="header-title-wrap">
+        <ul class="list-wrap">
+          <li
+            class="header-title"
+            v-for="(item, index) in title"
+            :key="index"
+            v-on:click="handleTitleClick(index, item)"
+            :class="{ active: activeIndex === index }"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <div class="user-menu-wrap">
+        <div class="user-icon"></div>
+        <div class="hbr-image"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getCookie, setCookie } from "@/utils/cookies";
 import { mapMutations } from "vuex";
 
 export default {
@@ -29,7 +33,7 @@ export default {
     handleTitleClick(index, item) {
       this.activeIndex = index;
       this.setTitle(item);
-      console.log(item);
+      setCookie("title", item);
     },
   },
   data() {
@@ -38,6 +42,15 @@ export default {
       activeIndex: 0,
     };
   },
+  mounted() {
+    const activeTitle = getCookie("title");
+    if (activeTitle) {
+      const index = this.title.findIndex(item => item === activeTitle);
+      if (index !== -1) {
+        this.activeIndex = index;
+      }
+    }
+  },
 };
 </script>
 
@@ -45,8 +58,10 @@ export default {
 @import "/src/assets/styles/mixin";
 
 .header-wrap {
-  width: 100%;
-  height: 80px;
+  width: calc(100%);
+  /* max-width: 1170px; */
+  margin: 0 auto;
+  height: 60px;
   @include flex-center();
   border-bottom: 1px solid $stroke-color;
   z-index: 999999;
@@ -58,22 +73,45 @@ export default {
 }
 .user-icon {
   background-color: gray;
-  width: 75px;
-  height: 75px;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
 .list-wrap {
   display: flex;
   width: 100%;
+  gap: 20px;
 }
 .header-title {
-  width: 100%;
-  max-width: 140px;
-  height: 80px;
+  width: auto;
+  /* max-width: 80px; */
+  height: 60px;
   @include flex-center();
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
 }
 .header-title.active {
-  background-color: $primary-color;
+  /* background-color: $primary-color; */
+  color: $primary-color;
+}
+.user-menu-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* padding-right: 10px; */
+}
+.hbr-image {
+  background: url("/src/assets/image/hbr_menu.png") no-repeat center;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+}
+@media all and (max-width: 768px) {
+  .user-icon {
+    display: none;
+  }
 }
 </style>

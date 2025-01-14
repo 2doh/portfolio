@@ -1,17 +1,21 @@
+import { getCookie, setCookie } from "@/utils/cookies";
 import { createStore } from "vuex";
+
+const initTitle = getCookie("title") || "목록1";
 
 const store = createStore({
   state: {
-    initTitle: "목록1",
+    title: initTitle,
   },
   getters: {
     getTitle(state) {
-      return state.initTitle;
+      return state.title;
     },
   },
   mutations: {
     setTitle(state, value) {
-      state.initTitle = value;
+      state.title = value;
+      setCookie("title", value);
     },
   },
 });
