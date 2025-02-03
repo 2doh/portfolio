@@ -19,7 +19,7 @@
         >
         <a
           class="github-protfolio-shortcut"
-          href="https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca"
+          href="https://github.com/2doh/portfolio"
           target="_blank"
           rel="noopener noreferrer"
           >포트폴리오 GitHub</a
@@ -29,7 +29,7 @@
         <div class="footer-title">Notion</div>
         <a
           class="github-shortcut"
-          href="https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca"
+          href="https://spotted-party-00f.notion.site/fd278b99c4874742907665ae140e68bc"
           target="_blank"
           rel="noopener noreferrer"
           >기존 포트폴리오</a
