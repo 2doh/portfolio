@@ -52,11 +52,13 @@ export default {
 .card-wrap {
   @include box-stroke();
   margin: 10px;
-  width: 250px;
-  height: 400px;
+  min-width: 250px;
+  height: auto;
+  max-height: 385px;
+  /* position: absolute; */
 }
 .card-inner {
-  padding: 5px;
+  padding: 3px;
   width: 100%;
   height: 100%;
 }
@@ -71,14 +73,15 @@ export default {
   background-size: cover;
 }
 .card-bottom {
-  margin-top: 10px;
+  margin-top: 5px;
+
   @include flex-center();
   flex-direction: column;
 }
 .card-title {
   font-weight: 600;
   font-size: 18px;
-  margin: 6px;
+  margin-top: 6px;
 }
 .card-bottom-profile-wrap {
   max-width: 250px;
