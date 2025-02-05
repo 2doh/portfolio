@@ -108,9 +108,10 @@ export default {
 .github-shortcut {
   margin-bottom: 15px;
 }
-@media all and (max-width: 385px) {
+@media all and (max-width: 400px) {
   .inner {
     display: inline-block;
+    margin-left: 10px;
   }
   .footer-middle,
   .footer-right {

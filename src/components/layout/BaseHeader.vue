@@ -114,4 +114,33 @@ export default {
     display: none;
   }
 }
+@media all and (max-width: 460px) {
+  .list-wrap {
+    gap: 10px;
+  }
+}
+@media all and (max-width: 420px) {
+  .header-title {
+    font-size: 15px;
+  }
+  .list-wrap {
+    gap: 5px;
+  }
+  .hbr-image {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media all and (max-width: 375px) {
+  .header-title {
+    font-size: 12px;
+  }
+  .list-wrap {
+    gap: 5px;
+  }
+  .hbr-image {
+    width: 20px;
+    height: 20px;
+  }
+}
 </style>
