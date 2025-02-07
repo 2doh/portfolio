@@ -14,7 +14,7 @@
 <script>
 import { onMounted, onUnmounted, ref } from "vue";
 import ProfileCard from "../profile/ProfileCard.vue";
-import Profile from "../profile/Profile.vue";
+import Profile from "../../views/Profile.vue";
 
 export default {
   name: "App",

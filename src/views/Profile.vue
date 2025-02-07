@@ -16,7 +16,8 @@
             <span class="highlight">실시간 화이트보드 플랫폼</span>을 개발하여
             여러 사용자가 한 화면에서
             <span class="highlight">동시에 그리기</span> 등의 기능을
-            구현했습니다. <br /><br />
+            구현했습니다.
+            <br />
             또한, <span class="highlight">Web Speech API</span>를 활용해
             <span class="highlight">영어 단어 학습 기능</span>을 개발하여
             사용자들이 <span class="highlight">듣기 및 말하기 </span>연습을 할
@@ -65,25 +66,9 @@
         <div class="profile-bottom-container">
           <div class="profile-bottom-cate">
             <div class="emogi">⚒️</div>
-            <div class="profile-bottom-title">스킬</div>
+            <div class="profile-bottom-title">기술</div>
           </div>
-          <div
-            class="profile-bottom-resume"
-            v-for="(item, index) in history"
-            :key="index"
-          >
-            <div class="profile-bottom-resume-duration">
-              {{ item.duration }}
-            </div>
-            <div class="profile-bottom-resume-descwrap">
-              <div class="profile-bottom-resume-act">
-                {{ item.activity }} ({{ item.region }})
-              </div>
-              <div class="profile-bottom-resume-desc">
-                {{ item.description }}
-              </div>
-            </div>
-          </div>
+          <ProfileSkills></ProfileSkills>
         </div>
         <div class="profile-bottom-shortcut-wrap">
           <a
@@ -111,13 +96,14 @@
 </template>
 
 <script>
-import ProfileCard from "./ProfileCard.vue";
 import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
+import ProfileCard from "@/components/profile/ProfileCard.vue";
+import ProfileSkills from "@/components/profile/ProfileSkills.vue";
 
 export default defineComponent({
   name: "Profile",
-  components: { ProfileCard, Icon },
+  components: { ProfileCard, Icon, ProfileSkills },
   data() {
     return {
       history: [
@@ -152,6 +138,9 @@ export default defineComponent({
   display: flex;
   width: 100%;
   height: 100%;
+}
+.profile-inner {
+  width: 100%;
 }
 .profile-top {
   width: 100%;
@@ -232,13 +221,14 @@ span {
 .profile-bottom-github-shortcut {
   gap: 10px;
   @include flex-center();
-  width: 210px;
+  width: 100%;
+  max-width: 210px;
   padding: 10px;
   border: 1px solid #666;
   border-radius: 5px;
   background-color: white;
 }
-@media all and (max-width: 604px) {
+@media all and (max-width: 768px) {
   .profile-wrap {
     flex-direction: column;
   }
