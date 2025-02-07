@@ -238,7 +238,7 @@ span {
 }
 @media all and (max-width: 335px) {
   .intro-title {
-    font-size: 24px;
+    font-size: 23px;
   }
 }
 </style>
