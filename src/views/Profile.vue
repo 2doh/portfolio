@@ -214,7 +214,7 @@ span {
   margin-top: 5px;
 }
 .profile-bottom-shortcut-wrap {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   gap: 20px;
 }
