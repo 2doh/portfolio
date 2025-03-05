@@ -23,7 +23,12 @@
           <p class="profile-skills-cate-title">{{ item.skill }}</p>
         </div>
       </div>
-      <div class="profile-skills-desc"></div>
+      <div class="profile-skills-desc">
+        <div v-if="selectedIndex !== null">
+          <h3>{{ skill[selectedIndex].skill }}</h3>
+          <p>{{ skill[selectedIndex].content }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +52,7 @@ export default defineComponent({
       { name: "flat-color-icons:idea", skill: "ETC" },
     ];
     const skill = ref(skills);
-    const selectedIndex = ref(null);
+    const selectedIndex = ref(0);
 
     const handleClick = index => {
       selectedIndex.value = index;
@@ -63,7 +68,7 @@ export default defineComponent({
   height: auto;
 }
 .profile-skills-container {
-  display: flex;
+  /* display: flex; */
   /* flex-direction: column;
   align-items: center; */
 }
@@ -103,5 +108,8 @@ export default defineComponent({
 .icon.active {
   width: 50px;
   height: 50px;
+}
+.profile-skills-desc {
+  margin-top: 10px;
 }
 </style>
