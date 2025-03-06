@@ -219,6 +219,7 @@ span {
   gap: 20px;
 }
 .profile-bottom-github-shortcut {
+  margin-bottom: 20px;
   gap: 10px;
   @include flex-center();
   width: 100%;

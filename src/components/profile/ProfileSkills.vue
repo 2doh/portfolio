@@ -23,10 +23,25 @@
           <p class="profile-skills-cate-title">{{ item.skill }}</p>
         </div>
       </div>
-      <div class="profile-skills-desc">
-        <div v-if="selectedIndex !== null">
-          <h3>{{ skill[selectedIndex].skill }}</h3>
-          <p>{{ skill[selectedIndex].content }}</p>
+      <div
+        class="profile-skills-desc"
+        v-if="selectedIndex !== null && skill[selectedIndex]"
+      >
+        <div v-if="selectedIndex !== null && skill[selectedIndex]">
+          <p class="profile-skills-desc-title">
+            {{ skill[selectedIndex].title }}
+          </p>
+          <ul class="profile-skills-desc-content">
+            <li class="profile-skills-desc-content-li">
+              {{ skill[selectedIndex].exp?.first }}
+            </li>
+            <li class="profile-skills-desc-content-li">
+              {{ skill[selectedIndex].exp?.second }}
+            </li>
+            <li class="profile-skills-desc-content-li">
+              {{ skill[selectedIndex].exp?.third }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -52,7 +67,7 @@ export default defineComponent({
       { name: "flat-color-icons:idea", skill: "ETC" },
     ];
     const skill = ref(skills);
-    const selectedIndex = ref(0);
+    const selectedIndex = ref(null);
 
     const handleClick = index => {
       selectedIndex.value = index;
@@ -110,6 +125,19 @@ export default defineComponent({
   height: 50px;
 }
 .profile-skills-desc {
+  margin-top: 20px;
+  min-height: 160px;
+}
+.profile-skills-desc-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+.profile-skills-desc-content {
   margin-top: 10px;
+}
+.profile-skills-desc-content-li {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
 }
 </style>

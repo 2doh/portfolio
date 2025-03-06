@@ -1,62 +1,62 @@
 [
   {
     "skill": "ReactJS",
-    "content": "React를 능숙하게 다룰 수 있으며, 전반적인 이해도가 높습니다.",
+    "title": "React를 능숙하게 다룰 수 있으며, 전반적인 이해도가 높습니다.",
     "exp": {
-      "first": "Recoil / Zustand / Redux를 활용한 전역 상태 관리 경험이 있습니다.",
-      "second": "axios를 이용하여 Back End와 API 연동을 구현한 경험이 있습니다.",
-      "third": "Hooks를 적극적으로 사용하며, JSX문법에 익숙합니다."
+      "first": "1. Recoil / Zustand / Redux를 활용한 전역 상태 관리 경험이 있습니다.",
+      "second": "2. axios를 이용하여 Back End와 API 연동을 구현한 경험이 있습니다.",
+      "third": "3. Hooks를 적극적으로 사용하며, JSX문법에 익숙합니다."
     }
   },
   {
     "skill": "JavaScript (ES6)",
-    "content": "ES6 문법을 활용한 가독성, 유지보수성, 생산성을 높이는 데 익숙합니다.",
+    "title": "ES6 문법을 활용한 가독성, 유지보수성, 생산성을 높이는 데 익숙합니다.",
     "exp": {
-      "first": "스프레드 연산자(...), 블록 스코프 변수(let, const), 화살표 함수, 템플릿 리터럴(``), 모듈 시스템(import, export)을 능숙하게 사용합니다.",
-      "second": "로컬 스토리지, 세션 스토리지, 쿠키를 이용한 데이터 관리와 async/await 문법을 사용한 비동기 처리가 가능합니다."
+      "first": "1. 스프레드 연산자(...), 블록 스코프 변수(let, const), 화살표 함수, 템플릿 리터럴(``), 모듈 시스템(import, export)을 능숙하게 사용합니다.",
+      "second": "2. 로컬 스토리지, 세션 스토리지, 쿠키를 이용한 데이터 관리와 async/await 문법을 사용한 비동기 처리가 가능합니다."
     }
   },
   {
     "skill": "Git / Github",
-    "content": "Git을 활용한 프로젝트 관리를 경험하였습니다.",
+    "title": "Git을 활용한 프로젝트 관리를 경험하였습니다.",
     "exp": {
-      "first": "Pull requests / Merge 과정에서 코드 리뷰를 통해 코드 가독성을 개선하고 충돌을 해결한 경험이 있습니다."
+      "first": "1. Pull requests / Merge 과정에서 코드 리뷰를 통해 코드 가독성을 개선하고 충돌을 해결한 경험이 있습니다."
     }
   },
   {
     "skill": "Style",
-    "content": "CSS / SCSS / CSS in JS / Tailwind CSS 등 다양한 스타일링이 가능합니다.",
+    "title": "CSS / SCSS / CSS in JS / Tailwind CSS 등 다양한 스타일링이 가능합니다.",
     "exp": {
-      "first": "SCSS의 믹스인, 모듈화, 변수를 활용하여 스타일링 편의성을 높였습니다.",
-      "second": "styled-component를 활용해 재사용 가능한 컴포넌트를 구현하였습니다.",
-      "third": "Tailwind CSS를 사용하여 빠르고 직관적인 스타일링을 적용한 경험이 있습니다."
+      "first": "1. SCSS의 믹스인, 모듈화, 변수를 활용하여 스타일링 편의성을 높였습니다.",
+      "second": "2. styled-component를 활용해 재사용 가능한 컴포넌트를 구현하였습니다.",
+      "third": "3. Tailwind CSS를 사용하여 빠르고 직관적인 스타일링을 적용한 경험이 있습니다."
     }
   },
   {
     "skill": "Rest API",
-    "content": "CRUD 개념을 이해하고 활용할 수 있습니다.",
+    "title": "CRUD 개념을 이해하고 활용할 수 있습니다.",
     "exp": {
-      "first": "Spring 기반 백엔드와 HTTP 통신을 통해 API 연동 경험이 있습니다.",
-      "second": "백엔드 개발자와의 협의를 통해 API 데이터 구조 설계 및 통신 오류 해결을 진행한 경험이 있습니다."
+      "first": "1. Spring 기반 백엔드와 HTTP 통신을 통해 API 연동 경험이 있습니다.",
+      "second": "2. 백엔드 개발자와의 협의를 통해 API 데이터 구조 설계 및 통신 오류 해결을 진행한 경험이 있습니다."
     }
   },
   {
     "skill": "HTML5",
-    "content": "웹 표준을 준수하며, 접근성과 SEO를 고려한 마크업을 작성할 수 있습니다."
+    "title": "웹 표준을 준수하며, 접근성과 SEO를 고려한 마크업을 작성할 수 있습니다."
   },
   {
     "skill": "TypeScript",
-    "content": "TypeScript를 활용한 안정적인 코드 작성 경험이 있습니다.",
+    "title": "TypeScript를 활용한 안정적인 코드 작성 경험이 있습니다.",
     "exp": {
-      "first": "데이터 타입 지정을 통해 props, 함수, 매개변수 간 타입 충돌을 방지하였습니다."
+      "first": "1. 데이터 타입 지정을 통해 props, 함수, 매개변수 간 타입 충돌을 방지하였습니다."
     }
   },
   {
     "skill": "ETC",
-    "content": "아이디어를 기반으로 다양한 시도를 하며 프로젝트를 개발한 경험이 있습니다.",
+    "title": "아이디어를 기반으로 다양한 시도를 하며 프로젝트를 개발한 경험이 있습니다.",
     "exp": {
-      "first": "Web Speech API & TTS API를 활용하여 학생 성적 관리 웹 애플리케이션에 영어 단어장 기능을 추가하였으며, 단어를 읽고 들을 수 있는 기능을 구현하였습니다.",
-      "second": "Canvas API를 활용하여 실시간 화이트보드 플랫폼을 개발하였으며, 여러 사용자가 동시에 그림을 그릴 수 있는 기능을 구현하였습니다."
+      "first": "1. Web Speech API & TTS API를 활용하여 학생 성적 관리 웹 애플리케이션에 영어 단어장 기능을 추가하였으며, 단어를 읽고 들을 수 있는 기능을 구현하였습니다.",
+      "second": "2. Canvas API를 활용하여 실시간 화이트보드 플랫폼을 개발하였으며, 여러 사용자가 동시에 그림을 그릴 수 있는 기능을 구현하였습니다."
     }
   }
 ]
