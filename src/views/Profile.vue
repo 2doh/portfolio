@@ -8,34 +8,37 @@
             <span class="intro-title">프론트엔드 개발자 이도현</span>
             <br /><br />
             <span class="intro-opening">
-              안녕하세요, 저는 배움과 도전을 즐기며, 사용자 경험을 최우선으로
-              생각하는 개발자입니다.
+              안녕하세요, 프론트엔드 개발자로 성장해 나가고 있는 이도현입니다.
             </span>
-            <br /><br />
-            <span class="highlight">Canvas API</span>를 활용해
-            <span class="highlight">실시간 화이트보드 플랫폼</span>을 개발하여
-            여러 사용자가 한 화면에서
-            <span class="highlight">동시에 그리기</span> 등의 기능을
-            구현했습니다.
             <br />
-            또한, <span class="highlight">Web Speech API</span>를 활용해
-            <span class="highlight">영어 단어 학습 기능</span>을 개발하여
-            사용자들이 <span class="highlight">듣기 및 말하기 </span>연습을 할
-            수 있도록 기능을 설계했습니다.
+            <br />
+            기계공학을 전공하며 엔지니어로서의 역량을 길렀지만 정형화된 학문적
+            접근보다 더 창의적인 도전을 하고 싶었습니다.
+            <span class="primary">아이디어를 자유롭게 구현</span>하고, 우리의
+            일상과 밀접한 웹 환경을 만드는 프론트엔드 개발에 매력을 느껴 새로운
+            길을 걷게 되었습니다.
           </p>
           <br />
           <p class="profile-top-intro">
-            <span class="intro-opening">그 외 기술 스택과 협업 경험 : </span>
+            <span class="intro-opening">
+              저를 세가지의 단어로 표현한다면
+              <span class="highlight">탐구</span>,
+              <span class="highlight">도전</span>,
+              <span class="highlight">창의성</span>입니다.</span
+            >
             <br /><br />
-            - <span class="highlight">Zustand, Recoil, Redux</span>를 사용한
-            효율적인 상태 관리 <br />
-            - <span class="highlight">TypeScript</span>와
-            <span class="highlight">Custom Hooks</span>를 통한 에러 방지 및
-            가독성 높은 코드 작성 <br />
-            - <span class="highlight">Git과 REST API</span>를 활용한 팀 협업 및
-            버전 관리<br />
-            - <span class="highlight">React / Vue</span> 서로 다른 프레임워크
-            사용 경험
+            - 문제의 <span class="primary">원인</span>을 분석하고
+            <span class="primary">재발을 방지</span>하기위해 검증을 반복하며
+            해결책을 찾고 <span class="highlight">탐구</span>하는
+            개발자입니다.<br />
+            - <span class="primary">새로운 기술과 시도</span>에 두려움 없이
+            뛰어들고, 직접 부딪히며 배워 나가는
+            <span class="highlight">도전</span>정신을 갖추고 있습니다.
+            <br />
+            - 하나의 컴포넌트를
+            <span class="primary">다양한 방식으로 표현</span>하고, 기능을
+            개선하며 더 나은 사용자 경험을 고민하는
+            <span class="highlight">창의성</span>을 중요하게 생각합니다.
           </p>
         </div>
       </div>
@@ -165,7 +168,11 @@ export default defineComponent({
   font-weight: 500;
 }
 .highlight {
-  font-weight: 600;
+  font-weight: 900;
+  color: $highlight-color;
+}
+.primary {
+  font-weight: 700;
   color: $primary-color;
 }
 p,
