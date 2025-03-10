@@ -4,7 +4,8 @@
       <!-- <ProfileCard v-if="!isFullScreen"></ProfileCard> -->
     </div>
     <div class="inner">
-      <Profile></Profile>
+      <Profile v-if="getTitle === '프로필'"></Profile>
+      <Project v-if="getTitle === '프로젝트'"></Project>
       <!-- <Profile v-bind:isFullScreen="isFullScreen"></Profile> -->
     </div>
     <div class="main-side-right"></div>
@@ -15,10 +16,15 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import ProfileCard from "../profile/ProfileCard.vue";
 import Profile from "../../views/Profile.vue";
+import { mapGetters } from "vuex";
+import Project from "@/views/Project.vue";
 
 export default {
   name: "App",
-  components: { ProfileCard, Profile },
+  components: { ProfileCard, Profile, Project },
+  computed: {
+    ...mapGetters(["getTitle"]),
+  },
   // setup() {
   //   const isFullScreen = ref(window.innerWidth <= 1720);
   //   const handleResize = () => {
