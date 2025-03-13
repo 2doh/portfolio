@@ -49,8 +49,6 @@ export default {
       if (index !== -1) {
         this.activeIndex = index;
       }
-    } else {
-      this.activeIndex = 0; // 브라우저를 닫으면 기본값 "프로필"로 초기화
     }
   },
 };
@@ -71,7 +69,6 @@ export default {
 .header-title-wrap {
   width: 100%;
   height: 100%;
-  /* background-color: antiquewhite; */
 }
 .user-icon {
   background-color: gray;
@@ -95,7 +92,6 @@ export default {
   font-weight: 500;
 }
 .header-title.active {
-  /* background-color: $primary-color; */
   color: $primary-color;
 }
 .user-menu-wrap {
@@ -103,7 +99,6 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  /* padding-right: 10px; */
 }
 .hbr-image {
   background: url("/src/assets/image/hbr_menu.png") no-repeat center;

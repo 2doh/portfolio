@@ -2,7 +2,6 @@ import { getCookie, setCookie } from "@/utils/cookies";
 import { createStore } from "vuex";
 
 const initTitle = getCookie("title") || "프로필";
-// const initTitle = "프로필";
 
 const store = createStore({
   state: {
