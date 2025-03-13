@@ -49,6 +49,8 @@ export default {
       if (index !== -1) {
         this.activeIndex = index;
       }
+    } else {
+      this.activeIndex = 0; // 브라우저를 닫으면 기본값 "프로필"로 초기화
     }
   },
 };
