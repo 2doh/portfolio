@@ -152,7 +152,7 @@ export default defineComponent({
 .profile-top-inner {
   max-width: 900px;
   margin: 10px;
-  min-height: 385px;
+  /* min-height: 385px; */
 }
 .profile-top-intro {
   word-spacing: 1px;

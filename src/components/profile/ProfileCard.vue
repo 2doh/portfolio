@@ -2,7 +2,7 @@
   <div class="card-wrap">
     <div class="card-inner">
       <div class="card-top">
-        <div class="card-idphoto"></div>
+        <img class="card-idphoto" src="../../assets/image/130.jpg"></img>
       </div>
       <div class="card-bottom">
         <div class="card-title">INFO</div>
@@ -66,15 +66,16 @@ export default {
   @include flex-center();
 }
 .card-idphoto {
-  @include box-stroke();
-  width: 150px;
-  height: 200px;
-  background: url("/src/assets/image/130.jpg") no-repeat center;
-  background-size: cover;
+  /* @include box-stroke(); */
+  /* width: 150px;
+  height: 200px; */
+  width: 100%;
+  height: 100%;
+  /* background: no-repeat center;
+  background-size: cover; */
 }
 .card-bottom {
   margin-top: 5px;
-
   @include flex-center();
   flex-direction: column;
 }

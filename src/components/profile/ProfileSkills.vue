@@ -129,7 +129,7 @@ export default defineComponent({
   min-height: 160px;
 }
 .profile-skills-desc-title {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700;
 }
 .profile-skills-desc-content {
