@@ -67,7 +67,7 @@ export default defineComponent({
       { name: "flat-color-icons:idea", skill: "ETC" },
     ];
     const skill = ref(skills);
-    const selectedIndex = ref(null);
+    const selectedIndex = ref(0);
 
     const handleClick = index => {
       selectedIndex.value = index;
