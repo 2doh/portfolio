@@ -89,9 +89,9 @@ export default defineComponent({
 }
 .profile-skills-cate {
   display: flex;
-  gap: 15px;
-  min-width: 586px;
-  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
 }
 .profile-skills-cate-wrap {
   margin-top: 10px;
@@ -101,6 +101,35 @@ export default defineComponent({
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
+.profile-skills-cate-wrap {
+  .icon {
+    width: 40px;
+    height: 40px;
+    transition: width 0.3s ease;
+  }
+
+  @media (max-width: 1024px) {
+    .icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .icon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
 .profile-skills-cate-wrap.faded {
   opacity: 0.5;
 }
@@ -111,10 +140,6 @@ export default defineComponent({
 .profile-skills-cate-title {
   font-weight: 400;
   font-size: 14px;
-}
-.icon {
-  width: 40px;
-  height: 40px;
 }
 .icon.faded {
   width: 20px;

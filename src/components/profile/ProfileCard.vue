@@ -2,7 +2,7 @@
   <div class="card-wrap">
     <div class="card-inner">
       <div class="card-top">
-        <img class="card-idphoto" src="../../assets/image/130.jpg"></img>
+        <img class="card-idphoto" src="../../assets/image/300.jpg"></img>
       </div>
       <div class="card-bottom">
         <div class="card-title">INFO</div>
@@ -37,8 +37,7 @@
 export default {
   name: "ProfileCard",
   methods: {
-    SendMailClick(e) {
-      e.preventDefault();
+    SendMailClick() {
       const email = "ldh0973@naver.com";
       window.location.href = `mailto:${email}`;
     },
@@ -50,12 +49,11 @@ export default {
 @import "/src/assets/styles/mixin";
 
 .card-wrap {
-  @include box-stroke();
+  /* @include box-stroke(); */
   margin: 10px;
   min-width: 250px;
   height: auto;
-  max-height: 385px;
-  /* position: absolute; */
+  /* max-height: 520px; */
 }
 .card-inner {
   padding: 3px;
@@ -67,12 +65,11 @@ export default {
 }
 .card-idphoto {
   /* @include box-stroke(); */
-  /* width: 150px;
-  height: 200px; */
   width: 100%;
   height: 100%;
-  /* background: no-repeat center;
-  background-size: cover; */
+  background: no-repeat center;
+  background-size: cover;
+  object-fit: cover;
 }
 .card-bottom {
   margin-top: 5px;
@@ -108,5 +105,28 @@ export default {
 }
 .send-mail {
   cursor: pointer;
+}
+@media all and (max-width: 768px) {
+  .card-inner {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .card-bottom {
+    min-width: 235px;
+    min-height: 172px;
+  }
+}
+@media all and (max-width: 500px) {
+  .card-top{
+
+  }
+  .card-inner {
+    display: block;
+  }
+  .card-wrap {
+    width: 100%;
+  }
 }
 </style>

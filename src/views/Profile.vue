@@ -3,6 +3,7 @@
     <ProfileCard></ProfileCard>
     <div class="profile-inner">
       <div class="profile-top">
+        <!-- <ProfileCard></ProfileCard> -->
         <div class="profile-top-inner">
           <p class="profile-top-intro">
             <span class="intro-title">프론트엔드 개발자 이도현</span>
@@ -240,6 +241,9 @@ span {
   .profile-wrap {
     flex-direction: column;
   }
+  /* .profile-top {
+    flex-direction: column;
+  } */
   .profile-bottom-resume {
     gap: 10px;
   }
