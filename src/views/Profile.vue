@@ -41,6 +41,7 @@
             개선하며 더 나은 사용자 경험을 고민하는
             <span class="highlight">창의성</span>을 중요하게 생각합니다.
           </p>
+          <ProfilePreference></ProfilePreference>
         </div>
       </div>
       <div class="profile-bottom">
@@ -73,6 +74,21 @@
             <div class="profile-bottom-title">기술</div>
           </div>
           <ProfileSkills></ProfileSkills>
+          <div class="skills-etc-wrap">
+            <div class="skills-etc-inner">
+              <p class="skills-etc-content">
+                그 외에도 JWT, Custom Hook, React Hook Form 등 다양한 라이브러리
+                및 기술에 대한 자세한 내용은
+                <a
+                  href="https://www.notion.so/08aa25a565ad4180a8fffd343a46d006"
+                  target="_blank"
+                  class="skills-to-notion"
+                >
+                  여기</a
+                >에서 확인할 수 있습니다.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="profile-bottom-shortcut-wrap">
           <a
@@ -104,10 +120,11 @@ import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
 import ProfileCard from "@/components/profile/ProfileCard.vue";
 import ProfileSkills from "@/components/profile/ProfileSkills.vue";
+import ProfilePreference from "@/components/profile/ProfilePreference.vue";
 
 export default defineComponent({
   name: "Profile",
-  components: { ProfileCard, Icon, ProfileSkills },
+  components: { ProfileCard, Icon, ProfileSkills, ProfilePreference },
   data() {
     return {
       history: [
@@ -185,7 +202,6 @@ span {
   width: 100%;
 }
 .profile-bottom-container {
-  margin-top: 15px;
 }
 .profile-bottom-cate {
   display: flex;
@@ -252,5 +268,19 @@ span {
   .intro-title {
     font-size: 23px;
   }
+}
+.skills-etc-wrap {
+  margin-top: 10px;
+}
+.skills-etc-content {
+  font-size: 17px;
+}
+.skills-to-notion {
+  font-size: 20px;
+  font-weight: 500;
+}
+.skills-to-notion:hover {
+  text-decoration: underline blue;
+  color: blue;
 }
 </style>

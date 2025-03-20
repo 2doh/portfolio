@@ -64,7 +64,8 @@ export default defineComponent({
       { name: "hugeicons:api", skill: "Rest API" },
       { name: "devicon:html5-wordmark", skill: "HTML5" },
       { name: "devicon:typescript", skill: "TypeScript" },
-      { name: "flat-color-icons:idea", skill: "ETC" },
+      { name: "logos:redux", skill: "State" },
+      { name: "flat-color-icons:idea", skill: "Idea" },
     ];
     const skill = ref(skills);
     const selectedIndex = ref(0);
@@ -151,7 +152,7 @@ export default defineComponent({
 }
 .profile-skills-desc {
   margin-top: 20px;
-  min-height: 160px;
+  min-height: 130px;
 }
 .profile-skills-desc-title {
   font-size: 21px;
