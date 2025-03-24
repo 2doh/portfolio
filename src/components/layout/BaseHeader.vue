@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      title: ["프로필", "프로젝트", "트러블슈팅", "학습기록"],
+      title: ["프로필", "프로젝트", "학습기록"],
       activeIndex: 0,
     };
   },
