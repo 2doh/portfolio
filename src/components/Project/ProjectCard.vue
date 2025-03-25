@@ -1,10 +1,18 @@
 <template>
   <div class="projectcard-wrap">
-    <img class="projectcard-top" src="../../assets/image/haesolwordtest.png" />
-    <div class="projectcard-bottom">
-      <div class="projectcard-bottom-title">해솔</div>
-      <div class="projectcard-bottom-tag-container"></div>
-      <div class="projectcard-bottom-sub"></div>
+    <div class="projectcard-inner">
+      <img
+        class="projectcard-top"
+        src="../../assets/image/haesolwordtest.png"
+      />
+      <div class="projectcard-bottom">
+        <div class="projectcard-bottom-title">해솔</div>
+        <div class="projectcard-bottom-subtitle"></div>
+        <div class="projectcard-bottom-tag-container">
+          <div class="projectcard-bottom-tag-type"></div>
+          <div class="projectcard-bottom-tag"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,10 +30,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .projectcard-wrap {
-  border-radius: 8px;
-  overflow: hidden;
+}
+.projectcard-inner {
 }
 .projectcard-top {
+  border: 1px solid #000000;
+  border-radius: 8px;
   width: 100%;
   background: no-repeat center;
   background-size: cover;
@@ -37,13 +47,17 @@ export default defineComponent({
   box-sizing: border-box;
   background-color: white;
 }
-
 .projectcard-bottom-title {
   font-size: 16px;
   font-weight: bold;
 }
-
+.projectcard-bottom-subtitle {
+}
 .projectcard-bottom-tag-container {
   margin-top: 5px;
+}
+.projectcard-bottom-tag-type {
+}
+.projectcard-bottom-tag {
 }
 </style>
