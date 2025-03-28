@@ -19,19 +19,19 @@
   },
   {
     "pic": "cloneKBB.png",
-    "title": "클론 - 카카오브레인 블로그",
+    "title": "Clone - 카카오브레인 블로그",
     "sub": "클론코딩 - 카카오브레인 블로그",
     "type": "클론코딩"
   },
   {
     "pic": "cloneKG.png",
-    "title": "클론 - 카카오같이가치",
+    "title": "Clone - 카카오같이가치",
     "sub": "클론코딩 - 카카오같이가치",
     "type": "클론코딩"
   },
   {
-    "pic": "",
-    "title": "포트폴리오",
+    "pic": "cloneKG.png",
+    "title": "Portfolio",
     "sub": "개인 포트폴리오 제작",
     "type": "개인 프로젝트"
   }

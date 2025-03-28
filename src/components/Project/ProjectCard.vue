@@ -2,14 +2,16 @@
   <div class="projectcard-wrap">
     <div class="projectcard-inner">
       <img
+        :src="
+          projects.pic ? require(`../../assets/image/${projects.pic}`) : null
+        "
         class="projectcard-top"
-        src="../../assets/image/haesolwordtest.png"
       />
       <div class="projectcard-bottom">
-        <div class="projectcard-bottom-title">해솔</div>
-        <div class="projectcard-bottom-subtitle"></div>
+        <div class="projectcard-bottom-title">{{ projects.title }}</div>
+        <div class="projectcard-bottom-subtitle">{{ projects.sub }}</div>
         <div class="projectcard-bottom-tag-container">
-          <div class="projectcard-bottom-tag-type"></div>
+          <div class="projectcard-bottom-tag-type">{{ projects.type }}</div>
           <div class="projectcard-bottom-tag"></div>
         </div>
       </div>
@@ -22,9 +24,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ProjectCard",
-  setup() {
-    return {};
+  props: {
+    projects: Object,
   },
+  setup() {},
 });
 </script>
 
