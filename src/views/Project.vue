@@ -1,5 +1,5 @@
 <template>
-  <div class="aa">
+  <div class="project-wrap">
     <ProjectCard
       v-for="item in team"
       :key="item.title"
@@ -42,10 +42,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.aa {
+.project-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 10px;
   width: 100%;
+  margin: 10px 0 10px;
+}
+@media all and (max-width: 450px) {
+  .project-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
 </style>

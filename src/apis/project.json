@@ -3,13 +3,26 @@
     "pic": "haesolmain.png",
     "title": "Haesol",
     "sub": "초등학생 성적 관리 시스템",
-    "type": "팀 프로젝트"
+    "type": "팀 프로젝트",
+    "tag": [
+      "scss",
+      "recoil",
+      "redux-toolkit",
+      "axios",
+      "jwt",
+      "tailwind-css",
+      "web-speech-api",
+      "social-login",
+      "git",
+      "협업"
+    ]
   },
   {
     "pic": "gvmain.png",
     "title": "GatherVerse",
     "sub": "온라인 화이트보드 서비스",
-    "type": "개인 프로젝트"
+    "type": "개인 프로젝트",
+    "tag": "2"
   },
   {
     "pic": "alotmain.png",

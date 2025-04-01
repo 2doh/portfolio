@@ -8,11 +8,17 @@
         class="projectcard-top"
       />
       <div class="projectcard-bottom">
-        <div class="projectcard-bottom-title">{{ projects.title }}</div>
-        <div class="projectcard-bottom-subtitle">{{ projects.sub }}</div>
+        <span class="projectcard-bottom-title">{{ projects.title }}</span>
+        <span class="projectcard-bottom-subtitle">{{ projects.sub }}</span>
+        <span class="projectcard-bottom-type">{{ projects.type }}</span>
         <div class="projectcard-bottom-tag-container">
-          <div class="projectcard-bottom-tag-type">{{ projects.type }}</div>
-          <div class="projectcard-bottom-tag"></div>
+          <span
+            v-for="(tag, index) in projects?.tag"
+            :key="index"
+            class="projectcard-bottom-tag"
+          >
+            {{ tag }}
+          </span>
         </div>
       </div>
     </div>
@@ -32,12 +38,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+span {
+  display: block;
+}
 .projectcard-wrap {
+  margin: 5px 0 5px;
 }
 .projectcard-inner {
 }
 .projectcard-top {
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   border-radius: 8px;
   width: 100%;
   background: no-repeat center;
@@ -49,18 +59,33 @@ export default defineComponent({
   height: 10%;
   box-sizing: border-box;
   background-color: white;
+  margin-top: 5px;
 }
 .projectcard-bottom-title {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 800;
 }
 .projectcard-bottom-subtitle {
+  margin-top: 7px;
+  font-size: 14px;
 }
-.projectcard-bottom-tag-container {
+.projectcard-bottom-type {
   margin-top: 5px;
 }
-.projectcard-bottom-tag-type {
+.projectcard-bottom-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.projectcard-bottom-type,
+.projectcard-bottom-tag {
+  font-size: 14px;
 }
 .projectcard-bottom-tag {
+  background-color: #f3f3f3;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
 }
 </style>
