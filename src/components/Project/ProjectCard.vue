@@ -8,17 +8,18 @@
         class="projectcard-top"
       />
       <div class="projectcard-bottom">
-        <span class="projectcard-bottom-title">{{ projects.title }}</span>
-        <span class="projectcard-bottom-subtitle">{{ projects.sub }}</span>
-        <span class="projectcard-bottom-type">{{ projects.type }}</span>
+        <span class="projectcard-bottom-title">{{ projects?.title }}</span>
+        <span class="projectcard-bottom-subtitle">{{ projects?.sub }}</span>
+        <span class="projectcard-bottom-type">{{ projects?.type }}</span>
         <div class="projectcard-bottom-tag-container">
-          <span
+          <div
             v-for="(tag, index) in projects?.tag"
             :key="index"
             class="projectcard-bottom-tag"
+            :style="{ backgroundColor: getTagColor(index) }"
           >
             {{ tag }}
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -26,14 +27,23 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import colorData from "../../apis/colors.json";
 
 export default defineComponent({
   name: "ProjectCard",
   props: {
     projects: Object,
   },
-  setup() {},
+  setup() {
+    const colors = ref(colorData.colors);
+    // console.log(colorData.colors);
+    const getTagColor = index => colors.value[index % colors.value.length];
+
+    return {
+      getTagColor,
+    };
+  },
 });
 </script>
 
@@ -47,8 +57,7 @@ span {
 .projectcard-inner {
 }
 .projectcard-top {
-  /* border: 1px solid #000000; */
-  border-radius: 8px;
+  border-radius: 4px;
   width: 100%;
   background: no-repeat center;
   background-size: cover;
@@ -68,24 +77,26 @@ span {
 .projectcard-bottom-subtitle {
   margin-top: 7px;
   font-size: 14px;
+  font-weight: 500;
 }
 .projectcard-bottom-type {
   margin-top: 5px;
 }
 .projectcard-bottom-tag-container {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
-.projectcard-bottom-type,
-.projectcard-bottom-tag {
+.projectcard-bottom-type {
   font-size: 14px;
+  font-weight: 400;
 }
 .projectcard-bottom-tag {
-  background-color: #f3f3f3;
-  padding: 5px;
-  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 5px 8px;
+  border-radius: 3px;
   text-align: center;
-  white-space: nowrap;
 }
 </style>

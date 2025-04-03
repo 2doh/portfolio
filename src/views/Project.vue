@@ -45,7 +45,7 @@ export default defineComponent({
 .project-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 10px;
+  gap: 15px;
   width: 100%;
   margin: 10px 0 10px;
 }
