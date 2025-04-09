@@ -48,26 +48,30 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "/src/assets/styles/mixin";
+
 span {
   display: block;
 }
 .projectcard-wrap {
   margin: 5px 0 5px;
+  border: 1px solid $stroke-color;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .projectcard-inner {
 }
 .projectcard-top {
-  border-radius: 4px;
   width: 100%;
   background: no-repeat center;
   background-size: cover;
   object-fit: cover;
 }
 .projectcard-bottom {
+  padding: 5px;
   width: 100%;
   height: 10%;
   box-sizing: border-box;
-  background-color: white;
   margin-top: 5px;
 }
 .projectcard-bottom-title {

@@ -2,6 +2,7 @@
   {
     "pic": "haesolmain.png",
     "title": "Haesol",
+    "url": "haesol",
     "sub": "초등학생 성적 관리 시스템",
     "type": "팀 프로젝트",
     "tag": [
@@ -26,6 +27,7 @@
   {
     "pic": "gvmain.png",
     "title": "GatherVerse",
+    "url": "gv",
     "sub": "온라인 화이트보드 서비스",
     "type": "개인 프로젝트",
     "tag": [
@@ -48,6 +50,7 @@
   {
     "pic": "alotmain.png",
     "title": "Alot",
+    "url": "alot",
     "sub": "여행 계획수립 서비스",
     "type": "팀 프로젝트",
     "tag": [
@@ -65,6 +68,7 @@
   {
     "pic": "cloneKBB.png",
     "title": "Clone - 카카오브레인 블로그",
+    "url": "clonekbb",
     "sub": "클론코딩 - 카카오브레인 블로그",
     "type": "클론코딩",
     "tag": [
@@ -82,6 +86,7 @@
   {
     "pic": "cloneKG.png",
     "title": "Clone - 카카오같이가치",
+    "url": "clonekgg",
     "sub": "클론코딩 - 카카오같이가치",
     "type": "클론코딩",
     "tag": [
@@ -100,6 +105,7 @@
   {
     "pic": "cloneKG.png",
     "title": "Portfolio",
+    "url": "portfolio",
     "sub": "개인 포트폴리오 제작",
     "type": "개인 프로젝트",
     "tag": [

@@ -6,6 +6,6 @@
   justify-content: center;
 }
 
-@mixin box-stroke() {
-  border: 1px solid $stroke-color;
+@mixin box-stroke($color) {
+  border: 1px solid $color;
 }
