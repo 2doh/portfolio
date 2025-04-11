@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-background" @click="handleModalClose" v-if="showModal">
+  <div class="modal-background" @click="handleModalClose">
     <div class="modal-wrap" @click.stop :class="{ fullscreen: isFullScreen }">
       <div class="modal-inner">
         <div class="modal-header">
@@ -19,7 +19,7 @@
             >닫기</Icon
           >
         </div>
-        <div class="modal-content">test</div>
+        <div class="modal-content">{{ selectedProject }}</div>
       </div>
     </div>
   </div>
@@ -32,8 +32,9 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "Modal",
   components: { Icon },
-  setup() {
-    const showModal = ref(true);
+  props: { selectedProject: Object },
+  emits: [`modalClose`],
+  setup(props, { emit }) {
     const isFullScreen = ref(false);
 
     const handleExpansion = () => {
@@ -41,9 +42,10 @@ export default defineComponent({
     };
 
     const handleModalClose = () => {
-      showModal.value = false;
+      emit(`modalClose`);
     };
-    return { showModal, handleModalClose, handleExpansion, isFullScreen };
+
+    return { handleExpansion, isFullScreen, handleModalClose };
   },
 });
 </script>

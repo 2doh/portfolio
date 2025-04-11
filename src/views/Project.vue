@@ -4,19 +4,28 @@
       v-for="item in team"
       :key="item.title"
       :projects="item"
-    ></ProjectCard>
+      @projectDescOpen="handleOpenModal"
+    />
 
     <ProjectCard
       v-for="item in solo"
       :key="item.title"
       :projects="item"
-    ></ProjectCard>
+      @projectDescOpen="handleOpenModal"
+    />
 
     <ProjectCard
       v-for="item in clone"
       :key="item.title"
       :projects="item"
-    ></ProjectCard>
+      @projectDescOpen="handleOpenModal"
+    />
+
+    <Modal
+      v-if="selectedProject"
+      :selectedProject="selectedProject"
+      @modalClose="modalClose"
+    />
   </div>
 </template>
 
@@ -24,10 +33,11 @@
 import ProjectCard from "@/components/Project/ProjectCard.vue";
 import { defineComponent, ref } from "vue";
 import projectList from "../apis/project.json";
+import Modal from "@/components/common/Modal.vue";
 
 export default defineComponent({
   name: "Project",
-  components: { ProjectCard },
+  components: { ProjectCard, Modal },
   setup() {
     const projects = ref(projectList);
     const solo = projectList.filter(
@@ -36,7 +46,25 @@ export default defineComponent({
     const team = projectList.filter(project => project.type === "팀 프로젝트");
     const clone = projectList.filter(project => project.type === "클론코딩");
 
-    return { projects, team, solo, clone };
+    const selectedProject = ref(null);
+    const handleOpenModal = data => {
+      // console.log(data);
+      selectedProject.value = data;
+    };
+
+    const modalClose = () => {
+      selectedProject.value = null;
+    };
+
+    return {
+      projects,
+      team,
+      solo,
+      clone,
+      handleOpenModal,
+      selectedProject,
+      modalClose,
+    };
   },
 });
 </script>

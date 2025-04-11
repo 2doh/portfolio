@@ -6,7 +6,6 @@
     <div class="inner">
       <Profile v-if="getTitle === '프로필'"></Profile>
       <Project v-if="getTitle === '프로젝트'"></Project>
-      <Modal v-if="getTitle === '학습기록'"></Modal>
       <!-- <Profile v-bind:isFullScreen="isFullScreen"></Profile> -->
     </div>
     <div class="main-side-right"></div>
@@ -19,11 +18,10 @@ import ProfileCard from "../profile/ProfileCard.vue";
 import Profile from "../../views/Profile.vue";
 import { mapGetters } from "vuex";
 import Project from "@/views/Project.vue";
-import Modal from "../common/Modal.vue";
 
 export default {
   name: "App",
-  components: { ProfileCard, Profile, Project, Modal },
+  components: { ProfileCard, Profile, Project },
   computed: {
     ...mapGetters(["getTitle"]),
   },

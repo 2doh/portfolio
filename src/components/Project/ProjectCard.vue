@@ -1,5 +1,5 @@
 <template>
-  <div class="projectcard-wrap">
+  <div class="projectcard-wrap" @click="projectDescOpen(projects.name)">
     <div class="projectcard-inner">
       <img
         :src="
@@ -29,19 +29,27 @@
 <script>
 import { defineComponent, ref } from "vue";
 import colorData from "../../apis/colors.json";
+import Modal from "../common/Modal.vue";
 
 export default defineComponent({
   name: "ProjectCard",
+  components: { Modal },
   props: {
     projects: Object,
   },
-  setup() {
+  emits: [`projectDescOpen`],
+  setup(props, { emit }) {
     const colors = ref(colorData.colors);
     // console.log(colorData.colors);
     const getTagColor = index => colors.value[index % colors.value.length];
 
+    const projectDescOpen = value => {
+      emit(`projectDescOpen`, value);
+    };
+
     return {
       getTagColor,
+      projectDescOpen,
     };
   },
 });
@@ -58,6 +66,7 @@ span {
   border: 1px solid $stroke-color;
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
 }
 .projectcard-inner {
 }
