@@ -2,24 +2,46 @@
   <div class="modal-background" @click="handleModalClose">
     <div class="modal-wrap" @click.stop :class="{ fullscreen: isFullScreen }">
       <div class="modal-inner">
-        <div class="modal-header">
-          <Icon
-            icon="line-md:arrows-diagonal-rotated"
-            width="16"
-            height="16"
-            class="open-fullscreen"
-            @click="handleExpansion"
-          />
-          <Icon
-            icon="material-symbols:close"
-            width="20"
-            height="20"
-            class="modal-close"
-            @click="handleModalClose"
-            >닫기</Icon
-          >
+        <div class="modal-top">
+          <div
+            class="modal-image"
+            :style="{
+              backgroundImage: modalData.pic
+                ? `url(${require(`../../assets/image/${modalData.pic}`)})`
+                : 'none',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }"
+          ></div>
+          <div class="modal-intro-wrap">
+            <div class="modal-title">{{ modalData?.title }}</div>
+            <div class="modal-sub">{{ modalData?.sub }}</div>
+            <div class="modal-type">{{ modalData?.type }}</div>
+          </div>
+          <div class="modal-button-wrap">
+            <Icon
+              icon="line-md:arrows-diagonal-rotated"
+              width="24"
+              height="24"
+              class="open-fullscreen"
+              @click="handleExpansion"
+            />
+            <Icon
+              icon="material-symbols:close"
+              width="24"
+              height="24"
+              class="modal-close"
+              @click="handleModalClose"
+              >닫기</Icon
+            >
+          </div>
         </div>
-        <div class="modal-content">{{ selectedProject }}</div>
+        <div class="modal-content">
+          <component
+            v-if="modalData.componentName"
+            :is="resolveDynamicComponent(modalData.componentName)"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -27,12 +49,13 @@
 
 <script>
 import { Icon } from "@iconify/vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, resolveDynamicComponent } from "vue";
+import Haesol from "../Project/Haesol/Haesol.vue";
 
 export default defineComponent({
   name: "Modal",
-  components: { Icon },
-  props: { selectedProject: Object },
+  components: { Icon, Haesol },
+  props: { modalData: Object },
   emits: [`modalClose`],
   setup(props, { emit }) {
     const isFullScreen = ref(false);
@@ -45,7 +68,12 @@ export default defineComponent({
       emit(`modalClose`);
     };
 
-    return { handleExpansion, isFullScreen, handleModalClose };
+    return {
+      handleExpansion,
+      isFullScreen,
+      handleModalClose,
+      resolveDynamicComponent,
+    };
   },
 });
 </script>
@@ -66,11 +94,12 @@ export default defineComponent({
 }
 .modal-wrap {
   position: relative;
-  width: 85%;
+  width: 80%;
+  max-width: 1080px;
   height: 90%;
   background: #ffffff;
   border-radius: 10px;
-  z-index: 99999999999;
+  z-index: 999;
   overflow: hidden;
 }
 .modal-wrap.fullscreen {
@@ -81,19 +110,56 @@ export default defineComponent({
 .modal-inner {
   display: block;
 }
-.modal-header {
+.modal-top {
+  background-color: rgb(0, 0, 0);
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.modal-image {
+  height: 100%;
+  opacity: 0.5;
+}
+.modal-intro-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+.modal-title {
+  font-weight: bold;
+  font-size: 40px;
+  color: #fff;
+}
+.modal-sub {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+.modal-type {
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+}
+.modal-button-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
+  /* justify-content: end; */
   align-items: center;
   padding: 10px;
 }
 .modal-content {
   padding: 30px;
 }
-.open-fullscreen {
-  cursor: pointer;
-}
+.open-fullscreen,
 .modal-close {
   cursor: pointer;
+  border-radius: 50%;
+  padding: 3px;
+  background-color: $stroke-color;
 }
 </style>

@@ -1,0 +1,1 @@
+modal 사용 시 :modalData / @modalClose 필요

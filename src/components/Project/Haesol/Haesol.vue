@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>해솔컴포넌트</div>
 </template>
 
 <script>

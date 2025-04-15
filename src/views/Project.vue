@@ -23,9 +23,10 @@
 
     <Modal
       v-if="selectedProject"
-      :selectedProject="selectedProject"
+      :modalData="selectedProject"
       @modalClose="modalClose"
-    />
+    >
+    </Modal>
   </div>
 </template>
 
@@ -34,17 +35,16 @@ import ProjectCard from "@/components/Project/ProjectCard.vue";
 import { defineComponent, ref } from "vue";
 import projectList from "../apis/project.json";
 import Modal from "@/components/common/Modal.vue";
+import Haesol from "@/components/Project/Haesol/Haesol.vue";
 
 export default defineComponent({
   name: "Project",
-  components: { ProjectCard, Modal },
+  components: { ProjectCard, Modal, Haesol },
   setup() {
     const projects = ref(projectList);
-    const solo = projectList.filter(
-      project => project.type === "개인 프로젝트",
-    );
-    const team = projectList.filter(project => project.type === "팀 프로젝트");
-    const clone = projectList.filter(project => project.type === "클론코딩");
+    const solo = projectList.filter(item => item.type === "개인 프로젝트");
+    const team = projectList.filter(item => item.type === "팀 프로젝트");
+    const clone = projectList.filter(item => item.type === "클론코딩");
 
     const selectedProject = ref(null);
     const handleOpenModal = data => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="projectcard-wrap" @click="projectDescOpen(projects.name)">
+  <div class="projectcard-wrap no-select" @click="projectDescOpen(projects)">
     <div class="projectcard-inner">
       <img
         :src="
@@ -29,11 +29,9 @@
 <script>
 import { defineComponent, ref } from "vue";
 import colorData from "../../apis/colors.json";
-import Modal from "../common/Modal.vue";
 
 export default defineComponent({
   name: "ProjectCard",
-  components: { Modal },
   props: {
     projects: Object,
   },

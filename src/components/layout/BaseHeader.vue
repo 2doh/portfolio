@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap no-select">
     <div class="inner">
       <div class="header-title-wrap">
         <ul class="list-wrap">

@@ -58,3 +58,7 @@ body,
 .br20 {
   border-radius: 20px;
 }
+
+.no-select {
+  user-select: none;
+}
