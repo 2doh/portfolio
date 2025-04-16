@@ -38,8 +38,8 @@
         </div>
         <div class="modal-content">
           <component
-            v-if="modalData.componentName"
-            :is="resolveDynamicComponent(modalData.componentName)"
+            v-if="modalData"
+            :is="resolveDynamicComponent(modalData.title)"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@
 <script>
 import { Icon } from "@iconify/vue";
 import { defineComponent, ref, resolveDynamicComponent } from "vue";
-import Haesol from "../Project/Haesol/Haesol.vue";
+import Haesol from "../Project/Projects/Haesol.vue";
 
 export default defineComponent({
   name: "Modal",
@@ -153,7 +153,8 @@ export default defineComponent({
   padding: 10px;
 }
 .modal-content {
-  padding: 30px;
+  padding: 20px;
+  height: 100%;
 }
 .open-fullscreen,
 .modal-close {

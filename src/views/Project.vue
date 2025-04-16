@@ -35,11 +35,10 @@ import ProjectCard from "@/components/Project/ProjectCard.vue";
 import { defineComponent, ref } from "vue";
 import projectList from "../apis/project.json";
 import Modal from "@/components/common/Modal.vue";
-import Haesol from "@/components/Project/Haesol/Haesol.vue";
 
 export default defineComponent({
   name: "Project",
-  components: { ProjectCard, Modal, Haesol },
+  components: { ProjectCard, Modal },
   setup() {
     const projects = ref(projectList);
     const solo = projectList.filter(item => item.type === "개인 프로젝트");
@@ -48,7 +47,6 @@ export default defineComponent({
 
     const selectedProject = ref(null);
     const handleOpenModal = data => {
-      // console.log(data);
       selectedProject.value = data;
     };
 
