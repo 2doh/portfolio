@@ -39,7 +39,7 @@
         <div class="modal-content">
           <component
             v-if="modalData"
-            :is="resolveDynamicComponent(modalData.title)"
+            :is="resolveDynamicComponent(modalData.name)"
           />
         </div>
       </div>
@@ -49,7 +49,13 @@
 
 <script>
 import { Icon } from "@iconify/vue";
-import { defineComponent, ref, resolveDynamicComponent } from "vue";
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+  resolveDynamicComponent,
+} from "vue";
 import Haesol from "../Project/Projects/Haesol.vue";
 
 export default defineComponent({
@@ -67,6 +73,13 @@ export default defineComponent({
     const handleModalClose = () => {
       emit(`modalClose`);
     };
+
+    onMounted(() => {
+      document.documentElement.style.overflowY = "hidden";
+    });
+    onUnmounted(() => {
+      document.documentElement.style.overflowY = "auto";
+    });
 
     return {
       handleExpansion,
@@ -96,24 +109,32 @@ export default defineComponent({
   position: relative;
   width: 80%;
   max-width: 1080px;
-  height: 90%;
+  height: 95%;
   background: #ffffff;
   border-radius: 10px;
   z-index: 999;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: auto;
 }
 .modal-wrap.fullscreen {
   width: 100% !important;
+  max-width: 1440px;
   height: 100% !important;
   border-radius: 0;
 }
 .modal-inner {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+  min-height: 100%;
 }
 .modal-top {
   background-color: rgb(0, 0, 0);
-  aspect-ratio: 16/9;
+  /* height: 50vh; */
+  aspect-ratio: 16 / 9;
   position: relative;
+  top: 0;
+  z-index: 10;
 }
 .modal-image {
   height: 100%;
@@ -154,7 +175,8 @@ export default defineComponent({
 }
 .modal-content {
   padding: 20px;
-  height: 100%;
+  flex: 1;
+  /* overflow-y: auto; */
 }
 .open-fullscreen,
 .modal-close {
@@ -162,5 +184,8 @@ export default defineComponent({
   border-radius: 50%;
   padding: 3px;
   background-color: $stroke-color;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

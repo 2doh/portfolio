@@ -32,7 +32,7 @@
 
 <script>
 import ProjectCard from "@/components/Project/ProjectCard.vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, onUnmounted, ref, watch } from "vue";
 import projectList from "../apis/project.json";
 import Modal from "@/components/common/Modal.vue";
 
@@ -53,6 +53,18 @@ export default defineComponent({
     const modalClose = () => {
       selectedProject.value = null;
     };
+
+    watch(selectedProject, value => {
+      if (value) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    });
+
+    onUnmounted(() => {
+      document.body.style.overflow = "";
+    });
 
     return {
       projects,

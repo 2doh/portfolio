@@ -91,24 +91,11 @@
           </div>
         </div>
         <div class="profile-bottom-shortcut-wrap">
-          <a
-            class="profile-bottom-github-shortcut"
-            href="https://github.com/2doh"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon icon="octicon:mark-github" width="32" height="32" />
-            <div class="profile-bottom-title">작업 깃 바로가기</div>
-          </a>
-          <a
-            class="profile-bottom-github-shortcut"
-            href="https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon icon="mingcute:notion-fill" width="32" height="32" />
-            <div class="profile-bottom-title">포트폴리오 제작기</div>
-          </a>
+          <ShortcutBtn
+            v-for="(item, index) in BtnArr"
+            :key="index"
+            :data="item"
+          />
         </div>
       </div>
     </div>
@@ -117,14 +104,29 @@
 
 <script>
 import { defineComponent } from "vue";
-import { Icon } from "@iconify/vue";
 import ProfileCard from "@/components/profile/ProfileCard.vue";
 import ProfileSkills from "@/components/profile/ProfileSkills.vue";
 import ProfilePreference from "@/components/profile/ProfilePreference.vue";
+import ShortcutBtn from "@/components/common/ShortcutBtn.vue";
 
 export default defineComponent({
   name: "Profile",
-  components: { ProfileCard, Icon, ProfileSkills, ProfilePreference },
+  components: { ProfileCard, ProfileSkills, ProfilePreference, ShortcutBtn },
+  setup() {
+    const BtnArr = [
+      {
+        title: "작업 깃 바로가기",
+        icon: "octicon:mark-github",
+        href: "https://github.com/2doh",
+      },
+      {
+        title: "포트폴리오 제작기",
+        icon: "mingcute:notion-fill",
+        href: "https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca",
+      },
+    ];
+    return { BtnArr };
+  },
   data() {
     return {
       history: [
@@ -280,7 +282,6 @@ span {
   font-weight: 500;
 }
 .skills-to-notion:hover {
-  text-decoration: underline blue;
   color: blue;
 }
 </style>
