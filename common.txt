@@ -1,0 +1,3 @@
+modal 사용 시 :modalData / @modalClose 필요
+
+ShortcutBtn 사용시 BtnArr = title,icon,href 필요

@@ -16,7 +16,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .Title {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 700;
 }
 </style>

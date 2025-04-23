@@ -62,3 +62,10 @@ body,
 .no-select {
   user-select: none;
 }
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-top-20 {
+  margin-top: 20px;
+}
