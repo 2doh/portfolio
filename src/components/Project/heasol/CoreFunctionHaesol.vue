@@ -4,17 +4,18 @@
     <CoreFunctionCard></CoreFunctionCard>
   </div>
   <span
-    >이외의 모든 이용자에게 공통으로 제공되는 기능으로 인증 기능, 내 정보 열람
-    및 수정 기능이 있습니다.</span
-  >
+    >이외의 모든 이용자에게 공통으로 제공되는 기능으로
+    <strong>인증 기능</strong>, 내 정보 열람 및 수정 기능이 있습니다.</span
+  ><br />
   <span
     >인증 기능에는 로그인, 소셜 로그인, 아이디·비밀번호 찾기, 회원가입이
     포함됩니다.</span
-  >
+  ><br />
   <span
-    >해당 프로젝트의 핵심 기능은 **볼드체**, 제가 담당한 기능은
+    >해당 프로젝트의 핵심 기능은 <strong>볼드체</strong>, 제가 담당한 기능은
     <u>밑줄</u> 처리하였습니다.</span
   >
+  <div class="corefunction-subtitle margin-top-10">성적 열람</div>
 </template>
 
 <script>
@@ -37,5 +38,9 @@ export default defineComponent({
 }
 .corefunction-card-wrap {
   margin: 20px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 </style>

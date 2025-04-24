@@ -40,6 +40,10 @@ body,
   color: #2a1b07;
 }
 
+strong {
+  font-weight: 700;
+}
+
 .inner {
   width: calc(100% - 30px);
   max-width: 1000px;
