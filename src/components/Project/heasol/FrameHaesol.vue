@@ -1,23 +1,25 @@
 <template>
-  <div class="haesol-presentation-wrap margin-top-20">
-    <div
-      v-for="(item, index) in tempData"
-      :key="index"
-      style="margin-top: 10px"
-    >
-      <span class="haesol-subtitle">{{ item.title }}</span>
-      <iframe
-        class="youtube-frame"
-        :src="item.youtube"
-        frameborder="0"
-        allowfullscreen
-      />
-      <iframe
-        class="canva-frame"
-        :src="item.canva"
-        frameborder="0"
-        allowfullscreen
-      />
+  <div class="frame-container">
+    <div class="haesol-presentation-wrap margin-top-10">
+      <div
+        v-for="(item, index) in tempData"
+        :key="index"
+        style="margin-top: 10px"
+      >
+        <span class="haesol-subtitle">{{ item.title }}</span>
+        <iframe
+          class="youtube-frame"
+          :src="item.youtube"
+          frameborder="0"
+          allowfullscreen
+        />
+        <iframe
+          class="canva-frame"
+          :src="item.canva"
+          frameborder="0"
+          allowfullscreen
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +52,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.frame-container {
+  padding: 16px;
+}
 .youtube-frame,
 .canva-frame {
   width: 100%;

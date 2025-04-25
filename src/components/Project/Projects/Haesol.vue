@@ -4,11 +4,11 @@
       <ProjectTitle :title="titleArr" :index="0" class="title" />
       <IntroHaesol />
     </div>
-    <div class="haesol-presentation margin-top-20">
+    <div class="haesol-presentation margin-top-10">
       <ProjectTitle :title="titleArr" :index="1" />
       <FrameHaesol />
     </div>
-    <div class="haesol-corefunction margin-top-20">
+    <div class="haesol-corefunction margin-top-10">
       <ProjectTitle :title="titleArr" :index="2" />
       <CoreFunctionHaesol />
     </div>
