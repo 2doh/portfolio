@@ -1,0 +1,65 @@
+[
+  {
+    "title": "인증기능",
+    "pic": "haesolLogin.png",
+    "subPic": "haesolSignup.png",
+    "type": "auth",
+    "desc": [
+      {
+        "text": [
+          "입력 형식이 지정된 양식을 따르지 않으면 ",
+          "유효성 검사",
+          "를 통해 에러 메시지가 표시됩니다."
+        ],
+        "strongIndex": [1]
+      },
+      {
+        "text": [
+          "로그인 시 ",
+          "JWT 인증 방식",
+          "을 사용해 토큰을 발급받으며, 토큰이 갱신되지 않으면 자동으로 로그아웃됩니다."
+        ],
+        "strongIndex": [1]
+      },
+      {
+        "text": [
+          "",
+          "React Hook Form",
+          "을 활용해 코드의 가독성을 높이고, 유효성 검사를 간편하게 처리했습니다."
+        ],
+        "strongIndex": [1]
+      },
+      {
+        "text": ["소셜 로그인은 각 제공업체로부터 토큰을 발급받아 인증합니다."],
+        "strongIndex": []
+      },
+      {
+        "text": ["컴포넌트를 분리해 재사용성과 효율성을 높였습니다."],
+        "strongIndex": []
+      }
+    ]
+  },
+  {
+    "title": "성적열람",
+    "pic": "haesolChart.png",
+    "type": "grade",
+    "desc": [
+      {
+        "text": [
+          "학기를 선택하여 조회를 누르면 과목별 내 점수와 학급/학년의 평균을 알 수 있습니다"
+        ],
+        "strongIndex": []
+      },
+      {
+        "text": [""],
+        "strongIndex": []
+      }
+    ]
+  },
+  {
+    "title": "단어장",
+    "pic": "haesolwordtest.png",
+    "type": "voca",
+    "desc": []
+  }
+]

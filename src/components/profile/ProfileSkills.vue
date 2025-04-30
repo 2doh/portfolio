@@ -136,7 +136,6 @@ export default defineComponent({
 }
 .profile-skills-cate-wrap.active {
   opacity: 1;
-  font-weight: bold;
 }
 .profile-skills-cate-title {
   font-weight: 400;

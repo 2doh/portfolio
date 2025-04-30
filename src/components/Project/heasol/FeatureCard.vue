@@ -1,30 +1,29 @@
 <template>
-  <div class="Auth-card margin-top-10">
+  <div class="card-wrap margin-top-10">
     <img :src="currentImage" class="feature-image" @click="ModalOpen" />
-
-    <div class="auth-desc margin-top-10">
-      <ul class="auth-feature-list" :class="{ clamped: !isExpanded }">
-        <li>
-          입력 형식이 지정된 양식을 따르지 않으면 <strong>유효성 검사</strong>를
-          통해 에러 메시지가 표시됩니다.
+    <div class="feature-desc margin-top-10">
+      <ul class="feature-list-wrap" :class="{ clamped: !isExpanded }">
+        <li
+          v-for="(feature, idx) in currentData.desc"
+          :key="idx"
+          class="feature-list"
+        >
+          <span v-for="(part, i) in feature.text" :key="i">
+            <strong v-if="feature.strongIndex.includes(i)">{{ part }}</strong>
+            <template v-else>{{ part }}</template>
+          </span>
         </li>
-        <li>
-          로그인 시 <strong>JWT 인증 방식을 사용</strong>해 토큰을 발급받으며,
-          토큰이 갱신되지 않으면 자동으로 로그아웃됩니다.
-        </li>
-        <li>소셜 로그인은 각 제공업체로부터 토큰을 발급받아 인증합니다.</li>
-        <li>
-          <strong>React Hook Form</strong>을 활용해 코드의 가독성을 높이고,
-          유효성 검사를 간편하게 처리했습니다.
-        </li>
-        <li>컴포넌트를 분리해 재사용성과 효율성을 높였습니다.</li>
       </ul>
       <div class="btn-wrap">
         <button @click="isExpanded = !isExpanded" class="toggle-btn">
           <span v-if="isExpanded">▲ 접기</span>
           <span v-else>▼ 더보기</span>
         </button>
-        <button @click="nextImage" class="next-image-btn">
+        <button
+          @click="nextImage"
+          class="next-image-btn"
+          v-if="currentData.subPic"
+        >
           다른 이미지 보기
         </button>
       </div>
@@ -38,11 +37,28 @@
 </template>
 
 <script>
-import { ref, defineComponent } from "vue";
+import { ref, defineComponent, computed } from "vue";
+import feature from "../../../apis/feature.json";
 
 export default defineComponent({
-  name: "AuthHaesol",
-  setup() {
+  name: "FeatureCard",
+  props: { currentTitle: String },
+  setup(props) {
+    const featrueData = ref(feature);
+    const currentIndex = ref(
+      featrueData.value.findIndex(item => item.title === props.currentTitle),
+    );
+    const currentData = computed(() => featrueData.value[currentIndex.value]);
+
+    const imageList = computed(() =>
+      [
+        require(`../../../assets/image/haesol/${currentData.value.pic}`),
+        currentData.value.subPic
+          ? require(`../../../assets/image/haesol/${currentData.value.subPic}`)
+          : null,
+      ].filter(Boolean),
+    );
+
     const isExpanded = ref(false);
     const isModalOpen = ref(false);
 
@@ -54,24 +70,21 @@ export default defineComponent({
       isModalOpen.value = false;
     };
 
-    const imageList = [
-      require("../../../assets/image/haesol/haesolLogin.png"),
-      require("../../../assets/image/haesol/haesolSignup.png"),
-    ];
-
     const currentImageIndex = ref(0);
-    const currentImage = ref(imageList[currentImageIndex.value]);
+    const currentImage = computed(
+      () => imageList.value[currentImageIndex.value],
+    );
 
     const nextImage = () => {
       currentImageIndex.value =
-        (currentImageIndex.value + 1) % imageList.length;
-      currentImage.value = imageList[currentImageIndex.value];
+        (currentImageIndex.value + 1) % imageList.value.length;
     };
 
     return {
       isExpanded,
       isModalOpen,
       currentImage,
+      currentData,
       ModalOpen,
       modalClose,
       nextImage,
@@ -81,7 +94,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.Auth-card {
+.card-wrap {
   border-radius: 1rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -96,7 +109,7 @@ export default defineComponent({
   /* aspect-ratio: 16 / 9; */
   cursor: pointer;
 }
-.auth-desc {
+.feature-desc {
   margin-right: 20px;
 }
 .clamped {
@@ -105,11 +118,28 @@ export default defineComponent({
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.auth-feature-list {
-  padding-left: 1.2rem;
-  list-style-type: disc;
+.feature-list-wrap {
+  /* padding-left: 1.2rem; */
   line-height: 1.8;
   font-size: 0.9rem;
+}
+
+.feature-list {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #444;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+
+  &::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: #5a9;
+  }
 }
 
 .toggle-btn {
@@ -150,12 +180,8 @@ export default defineComponent({
   justify-content: space-around;
 }
 .next-image-btn {
-  margin-top: 0.5rem;
   font-size: 0.9rem;
-  padding: 0.3rem 0.8rem;
-  /* background-color: #f0f0f0; */
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
 }
 </style>

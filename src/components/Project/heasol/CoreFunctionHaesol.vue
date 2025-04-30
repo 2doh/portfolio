@@ -18,26 +18,28 @@
         <u>밑줄</u> 처리하였습니다.
       </p>
     </div>
-    <div class="corefunction-subtitle margin-top-10">인증 기능</div>
-    <AuthHaesol />
-    <div class="corefunction-subtitle margin-top-10">성적 열람</div>
-    <GradeHaesol />
-    <div class="corefunction-subtitle margin-top-10">영어 단어장</div>
-    <AuthHaesol />
+    <div
+      class="corefunction-feature-container"
+      v-for="(item, index) in tempArr"
+      :key="index"
+    >
+      <div class="corefunction-subtitle margin-top-10">{{ item }}</div>
+      <FeatureCard :currentTitle="item" />
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import CoreFunctionCard from "./CoreFunctionCard.vue";
-import AuthHaesol from "./AuthHaesol.vue";
-import GradeHaesol from "./GradeHaesol.vue";
+import FeatureCard from "./FeatureCard.vue";
 
 export default defineComponent({
   name: "CoreFunctionHaesol",
-  components: { CoreFunctionCard, AuthHaesol, GradeHaesol },
+  components: { CoreFunctionCard, FeatureCard },
   setup() {
-    return {};
+    const tempArr = ["인증기능", "성적열람", "단어장"];
+    return { tempArr };
   },
 });
 </script>

@@ -3,7 +3,7 @@
     <div class="haesol-presentation-wrap margin-top-10">
       <div
         v-for="(item, index) in tempData"
-        :key="index"
+        :key="index.youtube"
         style="margin-top: 10px"
       >
         <span class="haesol-subtitle">{{ item.title }}</span>
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 
 export default defineComponent({
   name: "FrameHaesol",
   components: {},
   setup() {
-    const tempData = [
+    const tempData = reactive([
       {
         title: "2차 프로젝트",
         youtube: "https://www.youtube.com/embed/N55OhCdAAVY?start=2978",
@@ -45,7 +45,7 @@ export default defineComponent({
         canva:
           "https://www.canva.com/design/DAGOX-BUZVo/vMcPP8M-POpddSFY8bdD_w/view?embed",
       },
-    ];
+    ]);
     return { tempData };
   },
 });
