@@ -37,8 +37,9 @@ import FeatureCard from "./FeatureCard.vue";
 export default defineComponent({
   name: "CoreFunctionHaesol",
   components: { CoreFunctionCard, FeatureCard },
-  setup() {
-    const tempArr = ["인증기능", "성적열람", "단어장"];
+  props: {},
+  setup(props) {
+    const tempArr = ["인증기능", "성적열람", "단어장", "공용 컴포넌트 및 기능"];
     return { tempArr };
   },
 });

@@ -57,10 +57,11 @@ import {
   resolveDynamicComponent,
 } from "vue";
 import Haesol from "../Project/Projects/Haesol.vue";
+import Alot from "../Project/Projects/Alot.vue";
 
 export default defineComponent({
   name: "Modal",
-  components: { Icon, Haesol },
+  components: { Icon, Haesol, Alot },
   props: { modalData: Object },
   emits: [`modalClose`],
   setup(props, { emit }) {
@@ -72,6 +73,14 @@ export default defineComponent({
 
     const handleModalClose = () => {
       emit(`modalClose`);
+    };
+
+    const resolveDynamicComponent = name => {
+      const componentsMap = {
+        Haesol: Haesol,
+        Alot: Alot,
+      };
+      return componentsMap[name] || null; // 매핑된 컴포넌트가 없으면 null 반환
     };
 
     onMounted(() => {
@@ -111,10 +120,12 @@ export default defineComponent({
   max-width: 1080px;
   height: 95%;
   background: #ffffff;
-  border-radius: 10px;
   z-index: 999;
   /* overflow: hidden; */
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  border-radius: 10px;
+  overflow: hidden; // 스크롤 내용이 border-radius 넘지 않게
+  position: relative;
 }
 .modal-wrap.fullscreen {
   width: 100% !important;
@@ -126,7 +137,11 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   /* height: 100vh; */
-  min-height: 100%;
+  /* min-height: 100%; */
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-mask-image: radial-gradient(white 99%, transparent 100%);
+  mask-image: radial-gradient(white 99%, transparent 100%);
 }
 .modal-top {
   background-color: rgb(0, 0, 0);
@@ -184,8 +199,5 @@ export default defineComponent({
   border-radius: 50%;
   padding: 3px;
   background-color: $stroke-color;
-}
-::-webkit-scrollbar {
-  display: none;
 }
 </style>

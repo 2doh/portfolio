@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { ref, defineComponent, computed } from "vue";
+import { ref, defineComponent, computed, toRaw } from "vue";
 import feature from "../../../apis/feature.json";
 
 export default defineComponent({
@@ -111,10 +111,11 @@ export default defineComponent({
 }
 .feature-desc {
   margin-right: 20px;
+  padding: 10px 0 10px;
 }
 .clamped {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

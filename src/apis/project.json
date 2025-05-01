@@ -18,16 +18,19 @@
       "COOKIE",
       "AXIOS",
       "JWT",
-      "Web-Speech",
+      "Web-Speech-API",
+      "Web-Audio-API",
       "Social-Login",
       "협업",
-      "반응형"
+      "반응형",
+      "Nivo-Chart",
+      "Custom-Hooks"
     ]
   },
   {
     "pic": "gvmain.png",
     "title": "GatherVerse",
-    "name": "Gv",
+    "name": "GV",
     "sub": "온라인 화이트보드 서비스",
     "type": "개인 프로젝트",
     "tag": [
