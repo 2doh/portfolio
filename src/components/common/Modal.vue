@@ -50,6 +50,7 @@
 <script>
 import { Icon } from "@iconify/vue";
 import {
+  computed,
   defineComponent,
   onMounted,
   onUnmounted,
@@ -58,6 +59,7 @@ import {
 } from "vue";
 import Haesol from "../Project/Projects/Haesol.vue";
 import Alot from "../Project/Projects/Alot.vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Modal",
@@ -75,13 +77,13 @@ export default defineComponent({
       emit(`modalClose`);
     };
 
-    const resolveDynamicComponent = name => {
-      const componentsMap = {
-        Haesol: Haesol,
-        Alot: Alot,
-      };
-      return componentsMap[name] || null; // 매핑된 컴포넌트가 없으면 null 반환
-    };
+    // const resolveDynamicComponent = name => {
+    //   const componentsMap = {
+    //     Haesol: Haesol,
+    //     Alot: Alot,
+    //   };
+    //   return componentsMap[name] || null;
+    // };
 
     onMounted(() => {
       document.documentElement.style.overflowY = "hidden";
@@ -89,6 +91,12 @@ export default defineComponent({
     onUnmounted(() => {
       document.documentElement.style.overflowY = "auto";
     });
+
+    const lowerProjectName = computed(() => props.modalData.name.toLowerCase());
+    const store = useStore();
+    if (props.modalData?.name) {
+      store.commit("featureCard/setSelected", lowerProjectName.value);
+    }
 
     return {
       handleExpansion,

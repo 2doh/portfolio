@@ -1,0 +1,207 @@
+{
+  "feature": [
+    {
+      "title": "인증기능",
+      "pic": "haesolLogin.png",
+      "subPic": "haesolSignup.png",
+      "type": "auth",
+      "desc": [
+        {
+          "text": [
+            "입력값이 정해진 형식과 다를 경우, ",
+            "유효성 검사",
+            "를 통해 에러 메시지가 표시됩니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "로그인 시 ",
+            "JWT 인증 방식",
+            "을 사용해 토큰을 발급받으며, 토큰이 만료되면 자동으로 로그아웃 처리됩니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "",
+            "React Hook Form",
+            "을 활용해 유효성 검사를 간편하게 구현하고, 코드의 가독성을 높였습니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "소셜 로그인은 각 플랫폼에서 토큰을 이용해 인증을 처리합니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "로그인 후 이용자의 상태관리는 ",
+            "Recoil",
+            " 라이브러리를 통해 관리됩니다."
+          ],
+          "strongIndex": [1]
+        }
+      ]
+    },
+    {
+      "title": "성적열람",
+      "pic": "haesolChart.png",
+      "type": "grade",
+      "desc": [
+        {
+          "text": [
+            "Nivo Chart ",
+            "라이브러리를 활용하여 성적을 시각화하는 차트를 구현하였습니다."
+          ],
+          "strongIndex": [0]
+        },
+        {
+          "text": [
+            "학기를 선택하고 조회하면 과목별 내 점수와 함께 학급 및 학년 평균 점수를 확인할 수 있습니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "내 점수와 전체 평균을 한눈에 비교할 수 있도록 막대 그래프 형태로 구성하였습니다."
+          ],
+          "strongIndex": []
+        }
+      ]
+    },
+    {
+      "title": "단어장",
+      "pic": "haesolwordtest.png",
+      "subPic": "haesolwordui.png",
+      "type": "voca",
+      "desc": [
+        {
+          "text": [
+            "Web Speech API",
+            "를 사용하여 화면에 보이는 단어 카드를 따라 읽을 수 있는 영어 단어장 기능을 구현하였습니다."
+          ],
+          "strongIndex": [0]
+        },
+        {
+          "text": [
+            "확성기 아이콘을 클릭하면 말하기가 시작되며, 음성이 인식되면 ",
+            "Web Audio API ",
+            "를 사용해 주파수 데이터를 시각화한 볼륨 바가 표시됩니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "말하기 기능 외에도 사진을 클릭하면, 볼륨 슬라이더에 설정된 크기(%)만큼 ",
+            "단어 발음이 재생되며 ",
+            "음소거 기능도 지원됩니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "음소거 상태와 음성 인식 여부를 시각적으로 알 수 있도록 관련 UI를 구성하여, 사용자에게 소리 정보를 직관적으로 제공하였습니다."
+          ],
+          "strongIndex": []
+        }
+      ]
+    },
+    {
+      "title": "공용 컴포넌트 및 기능",
+      "pic": "haesolcommonfeature.png",
+      "type": "component",
+      "desc": [
+        {
+          "text": [
+            "제가 맡은 페이지 외 다른 기능에서도 사용할 수 있도록, ",
+            "input 컴포넌트, title 컴포넌트 ",
+            "등을 분리하여 ",
+            "공용 컴포넌트로 구성",
+            "하고, 프로젝트 전역에서 재사용 가능하도록 하여 개발 효율을 높였습니다."
+          ],
+          "strongIndex": [1, 3]
+        },
+        {
+          "text": [
+            "Daum-post 라이브러리를 활용한 주소 검색, 비밀번호 입력 시 자동 숨김, 전화번호 하이픈 자동 삽입 등의 기능을 ",
+            "Custom Hook",
+            "으로 구현하여 프로젝트 전반에서 편리하게 재사용할 수 있도록 하였습니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "공용 컴포넌트 중 Modal의 경우 ",
+            "Redux ",
+            "라이브러리를 통해 관리되었습니다."
+          ],
+          "strongIndex": [1]
+        }
+      ]
+    }
+  ],
+  "frame": [
+    {
+      "title": "2차 프로젝트",
+      "youtube": "https://www.youtube.com/embed/N55OhCdAAVY?start=2978",
+      "canva": "https://www.canva.com/design/DAGLc84_U6U/qqmmJjp2m1D3bmpUgXUbQg/view?embed"
+    },
+    {
+      "title": "3차 프로젝트",
+      "youtube": "https://www.youtube.com/embed/6fogD8UH548?si=xDz27JJ93gmnFGDe&amp;start=837",
+      "canva": "https://www.canva.com/design/DAGOX-BUZVo/vMcPP8M-POpddSFY8bdD_w/view?embed"
+    }
+  ],
+  "intro": [
+    {
+      "desc": [
+        {
+          "text": [
+            "해솔(Haesol)은 KDT React 개발자 양성 과정 중 수행한 팀 프로젝트입니다. ",
+            "맞벌이 가정을 위한 자녀의 학교생활 및 성적 관리 서비스로 기획되었으며, 부모가 자녀의 학습 상황을 쉽고 체계적으로 파악할 수 있도록 돕는 것이 목표입니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "2차 프로젝트에서는 전체 서비스의 구상 및 구조 설계와 함께, ",
+            "관리자(어드민) 역할을 포함한 기본 기능을 구현했습니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "3차 프로젝트에서는 코드의 재사용성과 유지보수를 고려하여 전반적인 ",
+            "컴포넌트화 작업을 진행하며 프로젝트를 고도화했습니다."
+          ],
+          "strongIndex": [1]
+        },
+        {
+          "text": [
+            "주요 기능으로는 ",
+            "과목별 오답 분석",
+            ", ",
+            "영어 단어 반복 학습",
+            " 등이 있으며, 이를 통해 자녀의 학습 성취도 향상을 기대할 수 있습니다."
+          ],
+          "strongIndex": [1, 3]
+        }
+      ],
+      "shortcut": [
+        {
+          "title": "프로젝트 깃허브",
+          "icon": "octicon:mark-github",
+          "href": "https://github.com/2doh/haesol"
+        },
+        {
+          "title": "프로젝트 노션",
+          "icon": "mingcute:notion-fill",
+          "href": "https://www.notion.so/2-HAESOL-613a41f133324a2fa3f7a342110f0cfe"
+        }
+      ]
+    }
+  ]
+}

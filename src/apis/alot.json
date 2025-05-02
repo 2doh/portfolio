@@ -1,0 +1,33 @@
+{
+  "feature": [
+    {
+      "title": "체크리스트",
+      "pic": "alotchecklist.png",
+      "type": "checklist",
+      "desc": [
+        {
+          "text": ["사전에 입력한 각 여행별 체크리스트가 렌더링됩니다."],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "각 항목은 개별 체크/삭제 할 수 있으며 전체삭제 또한 가능합니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "CRUD 및 상태관리에 초점을 두고 todo-list의 형태로 제작하였습니다."
+          ],
+          "strongIndex": []
+        }
+      ]
+    }
+  ],
+  "frame": [
+    {
+      "title": "1차 프로젝트",
+      "youtube": "https://www.youtube.com/embed/jIareYcDABE"
+    }
+  ]
+}

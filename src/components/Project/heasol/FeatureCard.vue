@@ -8,8 +8,11 @@
           :key="idx"
           class="feature-list"
         >
-          <span v-for="(part, i) in feature.text" :key="i">
-            <strong v-if="feature.strongIndex.includes(i)">{{ part }}</strong>
+          <span v-for="(part, i) in feature.text || []" :key="i">
+            <strong
+              v-if="feature.strongIndex && feature.strongIndex.includes(i)"
+              >{{ part }}</strong
+            >
             <template v-else>{{ part }}</template>
           </span>
         </li>
@@ -30,31 +33,54 @@
     </div>
   </div>
   <div v-if="isModalOpen" class="modal" @click="modalClose">
-    <div class="modal-content">
+    <div class="modal-content" @click.stop>
       <img :src="currentImage" class="modal-image" />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, defineComponent, computed, toRaw } from "vue";
-import feature from "../../../apis/feature.json";
+import { ref, defineComponent, computed } from "vue";
+import alot from "../../../apis/alot.json";
+import haesol from "../../../apis/haesol.json";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "FeatureCard",
   props: { currentTitle: String },
   setup(props) {
-    const featrueData = ref(feature);
-    const currentIndex = ref(
-      featrueData.value.findIndex(item => item.title === props.currentTitle),
+    const store = useStore();
+    const featureSelected = computed(
+      () => store.getters["featureCard/getSelected"],
     );
-    const currentData = computed(() => featrueData.value[currentIndex.value]);
+
+    let initData = {};
+
+    if (featureSelected.value === "haesol") {
+      initData = haesol;
+    }
+    if (featureSelected.value === "alot") {
+      initData = alot;
+    }
+
+    const featureData = computed(() => initData.feature);
+    const currentIndex = ref(
+      featureData.value.findIndex(item => item.title === props.currentTitle),
+    );
+
+    if (currentIndex.value === -1) {
+      currentIndex.value = 0;
+    }
+
+    const currentData = computed(() => featureData.value[currentIndex.value]);
 
     const imageList = computed(() =>
       [
-        require(`../../../assets/image/haesol/${currentData.value.pic}`),
+        require(`../../../assets/image/featurecard/${currentData.value.pic}`),
         currentData.value.subPic
-          ? require(`../../../assets/image/haesol/${currentData.value.subPic}`)
+          ? require(
+              `../../../assets/image/featurecard/${currentData.value.subPic}`,
+            )
           : null,
       ].filter(Boolean),
     );
@@ -106,7 +132,6 @@ export default defineComponent({
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  /* aspect-ratio: 16 / 9; */
   cursor: pointer;
 }
 .feature-desc {
@@ -120,7 +145,6 @@ export default defineComponent({
   overflow: hidden;
 }
 .feature-list-wrap {
-  /* padding-left: 1.2rem; */
   line-height: 1.8;
   font-size: 0.9rem;
 }
@@ -144,13 +168,12 @@ export default defineComponent({
 }
 
 .toggle-btn {
-  /* margin-top: 1rem; */
   cursor: pointer;
   font-size: 1rem;
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

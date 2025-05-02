@@ -2,18 +2,20 @@
   <div class="frame-container">
     <div class="haesol-presentation-wrap margin-top-10">
       <div
-        v-for="(item, index) in tempData"
+        v-for="(item, index) in frameData"
         :key="index.youtube"
         style="margin-top: 10px"
       >
         <span class="haesol-subtitle">{{ item.title }}</span>
         <iframe
+          v-if="item.youtube"
           class="youtube-frame"
           :src="item.youtube"
           frameborder="0"
           allowfullscreen
         />
         <iframe
+          v-if="item.canva"
           class="canva-frame"
           :src="item.canva"
           frameborder="0"
@@ -25,28 +27,28 @@
 </template>
 
 <script>
-import { defineComponent, reactive } from "vue";
+import { computed, defineComponent, reactive } from "vue";
+import haesol from "../../../apis/haesol.json";
+import alot from "../../../apis/alot.json";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "FrameHaesol",
   components: {},
   setup() {
-    const tempData = reactive([
-      {
-        title: "2차 프로젝트",
-        youtube: "https://www.youtube.com/embed/N55OhCdAAVY?start=2978",
-        canva:
-          "https://www.canva.com/design/DAGLc84_U6U/qqmmJjp2m1D3bmpUgXUbQg/view?embed",
-      },
-      {
-        title: "3차 프로젝트",
-        youtube:
-          "https://www.youtube.com/embed/6fogD8UH548?si=xDz27JJ93gmnFGDe&amp;start=837",
-        canva:
-          "https://www.canva.com/design/DAGOX-BUZVo/vMcPP8M-POpddSFY8bdD_w/view?embed",
-      },
-    ]);
-    return { tempData };
+    const store = useStore();
+    const selected = computed(() => store.getters["featureCard/getSelected"]);
+    let initData = {};
+
+    if (selected.value === "haesol") {
+      initData = haesol;
+    }
+    if (selected.value === "alot") {
+      initData = alot;
+    }
+    const frameData = computed(() => initData.frame);
+
+    return { frameData };
   },
 });
 </script>

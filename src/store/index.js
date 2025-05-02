@@ -1,11 +1,27 @@
-import { getCookie, setCookie } from "@/utils/cookies";
 import { createStore } from "vuex";
+import { getCookie, setCookie } from "@/utils/cookies";
 
-const initTitle = getCookie("title") || "프로필";
-
-const store = createStore({
+const featureCardStore = {
+  namespaced: true,
   state: {
-    title: initTitle,
+    featureSelected: null,
+  },
+  getters: {
+    getSelected(state) {
+      return state.featureSelected;
+    },
+  },
+  mutations: {
+    setSelected(state, value) {
+      state.featureSelected = value;
+    },
+  },
+  actions: {},
+};
+
+const titleStore = {
+  state: {
+    title: getCookie("title") || "프로필",
   },
   getters: {
     getTitle(state) {
@@ -18,5 +34,13 @@ const store = createStore({
       setCookie("title", value);
     },
   },
+};
+
+const store = createStore({
+  modules: {
+    featureCard: featureCardStore,
+    title: titleStore,
+  },
 });
+
 export default store;

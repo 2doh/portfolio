@@ -37,7 +37,7 @@ export default defineComponent({
     CoreFunctionHaesol,
     Contribution,
   },
-  setup(props) {
+  setup() {
     const titleArr = ["소개 및 기획의도", "발표", "담당기능", "기여도"];
 
     return { titleArr };
