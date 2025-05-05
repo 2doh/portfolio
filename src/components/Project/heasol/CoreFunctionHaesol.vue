@@ -41,8 +41,6 @@
 import { computed, defineComponent } from "vue";
 import CoreFunctionCard from "./CoreFunctionCard.vue";
 import FeatureCard from "./FeatureCard.vue";
-import haesol from "../../../apis/haesol.json";
-import alot from "../../../apis/alot.json";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -60,7 +58,7 @@ export default defineComponent({
       initData = ["인증기능", "성적열람", "단어장", "공용 컴포넌트 및 기능"];
     }
     if (selected.value === "alot") {
-      initData = ["체크리스트"];
+      initData = ["체크리스트", "홈 배너"];
     }
 
     return { initData, thisProjectTitle };

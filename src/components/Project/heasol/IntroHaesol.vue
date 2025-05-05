@@ -1,17 +1,17 @@
 <template>
   <div class="intro-container">
     <div class="haesol-intro-content">
-      <span v-for="(feature, index) in descData" :key="index">
+      <p v-for="(feature, index) in descData" :key="index">
         <span v-for="(part, i) in feature.text" :key="i">
           <strong v-if="feature.strongIndex && feature.strongIndex.includes(i)">
             {{ part }}
           </strong>
           <template v-else>{{ part }}</template>
         </span>
-      </span>
+      </p>
     </div>
     <div class="shortcut-wrap">
-      <ShortcutBtn v-for="(item, index) in BtnArr" :key="index" :data="item" />
+      <ShortcutBtn v-for="(item, index) in btnArr" :key="index" :data="item" />
     </div>
   </div>
 </template>
@@ -42,21 +42,9 @@ export default defineComponent({
     }
 
     const descData = computed(() => initData.intro[0].desc);
-    console.log(descData.value);
+    const btnArr = computed(() => initData.intro[0].shortcut);
 
-    const BtnArr = [
-      {
-        title: "프로젝트 깃허브",
-        icon: "octicon:mark-github",
-        href: "https://github.com/2doh/haesol",
-      },
-      {
-        title: "프로젝트 노션",
-        icon: "mingcute:notion-fill",
-        href: "https://www.notion.so/2-HAESOL-613a41f133324a2fa3f7a342110f0cfe",
-      },
-    ];
-    return { BtnArr, descData };
+    return { btnArr, descData };
   },
 });
 </script>
@@ -69,6 +57,9 @@ export default defineComponent({
   /* font-size: 14px; */
   margin-top: 10px;
   line-height: 20px;
+}
+.haesol-intro-content p {
+  margin-bottom: 1.5rem;
 }
 strong {
   font-weight: 500;

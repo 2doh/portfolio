@@ -1,24 +1,23 @@
 <template>
   <div
     class="core-function-card-wrap"
-    v-for="(item, index) in userFunctionArr"
+    v-for="(item, index) in initData"
     :key="index"
-    :class="item.usertype"
+    :class="item.type"
   >
     <h2 class="core-function-card-title">
-      <span class="usertype-icon">{{ userIcons[item.usertype] }}</span>
-      {{ userTypeLabels[item.usertype] }}
+      <span class="usertype-icon">{{ item.icon }}</span>
+      {{ item.label }}
     </h2>
     <ul>
-      <li v-for="(feature, idx) in item.userspecificfeatures" :key="idx">
-        <span>
-          <span
-            :class="{
-              strong: highlightedFeatures.includes(feature),
-              underline: underlinedFeatures.includes(feature),
-            }"
-            >{{ feature }}</span
-          >
+      <li v-for="(feat, idx) in item.features" :key="idx">
+        <span
+          :class="{
+            strong: item.strongIndex?.includes(idx),
+            underline: item.underlineIndex?.includes(idx),
+          }"
+        >
+          {{ feat }}
         </span>
       </li>
     </ul>
@@ -26,71 +25,28 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
+import alot from "../../../apis/alot.json";
+import haesol from "../../../apis/haesol.json";
 
 export default defineComponent({
   name: "CoreFunctionCard",
   props: {},
   setup() {
-    const userFunctionArr = [
-      {
-        usertype: "parent",
-        userspecificfeatures: ["성적 열람", "전자 서명", "자녀 정보 관리"],
-      },
-      {
-        usertype: "teacher",
-        userspecificfeatures: [
-          "학생 정보 관리",
-          "성적 입력 및 수정",
-          "알림장 작성",
-          "문제 출제",
-        ],
-      },
-      {
-        usertype: "admin",
-        userspecificfeatures: ["인증 승인 및 반려", "유저 정보 수정"],
-      },
-      {
-        usertype: "student",
-        userspecificfeatures: [
-          "온라인 학습",
-          "오답 노트",
-          "영어 단어장",
-          "성적 열람",
-        ],
-      },
-    ];
-    const userIcons = {
-      parent: "👨‍👩‍👧‍👦",
-      teacher: "👩‍🏫",
-      admin: "🛠️",
-      student: "🎓",
-    };
+    const store = useStore();
+    const selected = computed(() => store.getters["featureCard/getSelected"]);
+    let initData = {};
 
-    const userTypeLabels = {
-      parent: "학부모",
-      teacher: "교사",
-      admin: "관리자",
-      student: "학생",
-    };
-
-    const highlightedFeatures = [
-      "성적 열람",
-      "영어 단어장",
-      "인증 승인 및 반려",
-      "오답 노트",
-      "전자 서명",
-      "온라인 학습",
-    ];
-
-    const underlinedFeatures = ["성적 열람", "영어 단어장"];
+    if (selected.value === "haesol") {
+      initData = haesol.core;
+    }
+    if (selected.value === "alot") {
+      initData = alot.core;
+    }
 
     return {
-      userFunctionArr,
-      userIcons,
-      userTypeLabels,
-      highlightedFeatures,
-      underlinedFeatures,
+      initData,
     };
   },
 });

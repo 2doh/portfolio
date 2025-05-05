@@ -3,18 +3,13 @@
     <div class="chart-container">
       <Doughnut :data="chartData" :options="chartOptions" />
 
-      <div class="chart-center-text">35%</div>
+      <div class="chart-center-text">{{ initData.percent }}%</div>
     </div>
 
     <div class="contribution-content">
-      <h3>나의 기여도 <span>(35%)</span></h3>
+      <h3>나의 기여도</h3>
       <ul>
-        <li>전체 Git 관리 및 코딩 컨벤션, 프로젝트 구조 확립</li>
-        <li>사용자 정보를 바탕으로 한 상태 관리</li>
-        <li>
-          핵심 기능 중 하나인 <strong>단어장</strong> (말하기, 듣기, 쓰기)
-          페이지 제작
-        </li>
+        <li v-for="(item, index) in initData.text" :key="index">{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -22,20 +17,37 @@
 
 <script>
 import { ArcElement, Legend, Title, Tooltip, Chart as ChartJS } from "chart.js";
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { Doughnut } from "vue-chartjs";
+import alot from "../../../apis/alot.json";
+import haesol from "../../../apis/haesol.json";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Contribution",
   components: { Doughnut },
   setup() {
+    const store = useStore();
+    const featureSelected = computed(
+      () => store.getters["featureCard/getSelected"],
+    );
+
+    let initData = {};
+
+    if (featureSelected.value === "haesol") {
+      initData = haesol.contribution[0];
+    }
+    if (featureSelected.value === "alot") {
+      initData = alot.contribution[0];
+    }
+
     ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
     const chartData = {
       labels: ["기여도"],
       datasets: [
         {
-          data: [35, 65],
+          data: [initData.percent, 100 - initData.percent],
           backgroundColor: ["#a26b6b", "#e0e0e0"],
           borderWidth: 0,
         },
@@ -53,7 +65,7 @@ export default defineComponent({
         },
       },
     };
-    return { chartOptions, chartData };
+    return { chartOptions, chartData, initData };
   },
 });
 </script>

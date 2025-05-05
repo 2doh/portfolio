@@ -168,16 +168,11 @@
         {
           "text": [
             "2차 프로젝트에서는 전체 서비스의 구상 및 구조 설계와 함께, ",
-            "관리자(어드민) 역할을 포함한 기본 기능을 구현했습니다."
-          ],
-          "strongIndex": [1]
-        },
-        {
-          "text": [
+            "관리자(어드민) 역할을 포함한 기본 기능을 구현했습니다. ",
             "3차 프로젝트에서는 코드의 재사용성과 유지보수를 고려하여 전반적인 ",
             "컴포넌트화 작업을 진행하며 프로젝트를 고도화했습니다."
           ],
-          "strongIndex": [1]
+          "strongIndex": [1, 3]
         },
         {
           "text": [
@@ -201,6 +196,55 @@
           "icon": "mingcute:notion-fill",
           "href": "https://www.notion.so/2-HAESOL-613a41f133324a2fa3f7a342110f0cfe"
         }
+      ]
+    }
+  ],
+  "core": [
+    {
+      "label": "학부모",
+      "icon": "👨‍👩‍👧‍👦",
+      "type": "parent",
+      "features": ["성적 열람", "전자 서명", "자녀 정보 관리"],
+      "strongIndex": [0, 1],
+      "underlineIndex": []
+    },
+    {
+      "label": "교사",
+      "icon": "👩‍🏫",
+      "type": "teacher",
+      "features": [
+        "학생 정보 관리",
+        "성적 입력 및 수정",
+        "알림장 작성",
+        "문제 출제"
+      ],
+      "strongIndex": [],
+      "underlineIndex": []
+    },
+    {
+      "label": "관리자",
+      "icon": "🛠️",
+      "type": "admin",
+      "features": ["인증 승인 및 반려", "유저 정보 수정"],
+      "strongIndex": [0],
+      "underlineIndex": []
+    },
+    {
+      "label": "학생",
+      "icon": "🎓",
+      "type": "student",
+      "features": ["온라인 학습", "오답 노트", "영어 단어장", "성적 열람"],
+      "strongIndex": [0, 1, 2],
+      "underlineIndex": [2, 3]
+    }
+  ],
+  "contribution": [
+    {
+      "percent": "35",
+      "text": [
+        "전체 Git 관리 및 코딩 컨벤션, 프로젝트 구조 확립",
+        "사용자 정보를 바탕으로 한 상태 관리",
+        "핵심 기능 중 하나인 단어장(말하기, 듣기, 쓰기) 페이지 제작"
       ]
     }
   ]
