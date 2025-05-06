@@ -24,7 +24,8 @@
       "협업",
       "반응형",
       "Nivo-Chart",
-      "Custom-Hooks"
+      "Custom-Hooks",
+      "Tailwind-CSS"
     ]
   },
   {
@@ -42,12 +43,15 @@
       "COOKIE",
       "CSS-in-JS",
       "TYPESCRIPT",
-      "REACTHOOKFORM",
+      "REACT-HOOK-FORM",
+      "YUP",
       "ZUSTAND",
       "FIREBASE",
       "CANVAS",
       "Social-Login",
-      "반응형"
+      "반응형",
+      "Tailwind-CSS",
+      "REACT-SPINNERS"
     ]
   },
   {

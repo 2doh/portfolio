@@ -29,6 +29,7 @@ import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
 import alot from "../../../apis/alot.json";
 import haesol from "../../../apis/haesol.json";
+import gv from "../../../apis/gv.json";
 
 export default defineComponent({
   name: "CoreFunctionCard",
@@ -43,6 +44,9 @@ export default defineComponent({
     }
     if (selected.value === "alot") {
       initData = alot.core;
+    }
+    if (selected.value === "gv") {
+      initData = gv.core;
     }
 
     return {

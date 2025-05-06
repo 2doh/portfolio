@@ -103,7 +103,7 @@
       "type": "user",
       "features": ["일정 계획", "계획 수정", "체크리스트"],
       "strongIndex": [0, 2],
-      "underlineIndex": []
+      "underlineIndex": [2]
     }
   ],
   "contribution": [

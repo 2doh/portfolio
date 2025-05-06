@@ -43,6 +43,7 @@
 import { ref, defineComponent, computed } from "vue";
 import alot from "../../../apis/alot.json";
 import haesol from "../../../apis/haesol.json";
+import gv from "../../../apis/gv.json";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -61,6 +62,9 @@ export default defineComponent({
     }
     if (featureSelected.value === "alot") {
       initData = alot;
+    }
+    if (featureSelected.value === "gv") {
+      initData = gv;
     }
 
     const featureData = computed(() => initData.feature);

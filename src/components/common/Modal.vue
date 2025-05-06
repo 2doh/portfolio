@@ -59,11 +59,12 @@ import {
 } from "vue";
 import Haesol from "../Project/Projects/Haesol.vue";
 import Alot from "../Project/Projects/Alot.vue";
+import GV from "../Project/Projects/GV.vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Modal",
-  components: { Icon, Haesol, Alot },
+  components: { Icon, Haesol, Alot, GV },
   props: { modalData: Object },
   emits: [`modalClose`],
   setup(props, { emit }) {

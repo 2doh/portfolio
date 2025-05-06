@@ -60,6 +60,9 @@ export default defineComponent({
     if (selected.value === "alot") {
       initData = ["체크리스트", "홈 배너"];
     }
+    if (selected.value === "gv") {
+      initData = ["화이트 보드", "인증기능"];
+    }
 
     return { initData, thisProjectTitle };
   },

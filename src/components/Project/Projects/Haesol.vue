@@ -1,18 +1,18 @@
 <template>
-  <div class="haesol-wrap">
-    <div class="haesol-intro">
-      <ProjectTitle :title="titleArr" :index="0" class="title" />
+  <div class="wrap">
+    <div class="intro">
+      <ProjectTitle :title="titleArr" :index="0" />
       <IntroHaesol />
     </div>
-    <div class="haesol-presentation margin-top-10">
+    <div class="presentation margin-top-10">
       <ProjectTitle :title="titleArr" :index="1" />
       <FrameHaesol />
     </div>
-    <div class="haesol-corefunction margin-top-10">
+    <div class="corefunction margin-top-10">
       <ProjectTitle :title="titleArr" :index="2" />
       <CoreFunctionHaesol />
     </div>
-    <div class="haesol-corefunction margin-top-10">
+    <div class="contribution margin-top-10">
       <ProjectTitle :title="titleArr" :index="3" />
       <Contribution />
     </div>
