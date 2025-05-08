@@ -1,6 +1,16 @@
 <template>
   <div class="modal-background" @click="handleModalClose">
-    <div class="modal-wrap" @click.stop :class="{ fullscreen: isFullScreen }">
+    <div
+      class="modal-wrap"
+      @click.stop
+      ref="scrollContainer"
+      :class="{ fullscreen: isFullScreen }"
+    >
+      <ModalHeader
+        @toggleFullscreen="handleExpansion"
+        @modalClose="handleModalClose"
+        :scrollTarget="scrollContainer"
+      />
       <div class="modal-inner">
         <div class="modal-top">
           <div
@@ -12,28 +22,11 @@
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }"
-          ></div>
+          />
           <div class="modal-intro-wrap">
             <div class="modal-title">{{ modalData?.title }}</div>
             <div class="modal-sub">{{ modalData?.sub }}</div>
             <div class="modal-type">{{ modalData?.type }}</div>
-          </div>
-          <div class="modal-button-wrap">
-            <Icon
-              icon="line-md:arrows-diagonal-rotated"
-              width="24"
-              height="24"
-              class="open-fullscreen"
-              @click="handleExpansion"
-            />
-            <Icon
-              icon="material-symbols:close"
-              width="24"
-              height="24"
-              class="modal-close"
-              @click="handleModalClose"
-              >닫기</Icon
-            >
           </div>
         </div>
         <div class="modal-content">
@@ -60,11 +53,24 @@ import {
 import Haesol from "../Project/Projects/Haesol.vue";
 import Alot from "../Project/Projects/Alot.vue";
 import GV from "../Project/Projects/GV.vue";
+import Clonekbb from "../Project/Projects/Clonekbb.vue";
+import Clonekgg from "../Project/Projects/Clonekgg.vue";
+import Portfolio from "../Project/Projects/Portfolio.vue";
 import { useStore } from "vuex";
+import ModalHeader from "./ModalHeader.vue";
 
 export default defineComponent({
   name: "Modal",
-  components: { Icon, Haesol, Alot, GV },
+  components: {
+    Icon,
+    Haesol,
+    Alot,
+    GV,
+    Clonekgg,
+    Clonekbb,
+    ModalHeader,
+    Portfolio,
+  },
   props: { modalData: Object },
   emits: [`modalClose`],
   setup(props, { emit }) {
@@ -99,11 +105,14 @@ export default defineComponent({
       store.commit("featureCard/setSelected", lowerProjectName.value);
     }
 
+    const scrollContainer = ref(null);
+
     return {
       handleExpansion,
       isFullScreen,
       handleModalClose,
       resolveDynamicComponent,
+      scrollContainer,
     };
   },
 });
@@ -122,6 +131,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 .modal-wrap {
   position: relative;
@@ -129,12 +139,9 @@ export default defineComponent({
   max-width: 1080px;
   height: 95%;
   background: #ffffff;
-  z-index: 999;
-  /* overflow: hidden; */
-  /* overflow-y: auto; */
   border-radius: 10px;
   overflow: hidden; // 스크롤 내용이 border-radius 넘지 않게
-  position: relative;
+  padding: 0 0 50px;
 }
 .modal-wrap.fullscreen {
   width: 100% !important;
@@ -149,8 +156,9 @@ export default defineComponent({
   /* min-height: 100%; */
   height: 100%;
   overflow-y: scroll;
-  -webkit-mask-image: radial-gradient(white 99%, transparent 100%);
-  mask-image: radial-gradient(white 99%, transparent 100%);
+}
+.modal-inner::-webkit-scrollbar {
+  /* display: none; */
 }
 .modal-top {
   background-color: rgb(0, 0, 0);
@@ -173,40 +181,57 @@ export default defineComponent({
 }
 .modal-title {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 80px;
   color: #fff;
 }
 .modal-sub {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 24px;
   color: #fff;
 }
 .modal-type {
+  margin-top: 5px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 22px;
   color: #fff;
 }
-.modal-button-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  /* justify-content: end; */
-  align-items: center;
-  padding: 10px;
-}
+
 .modal-content {
   padding: 20px;
   flex: 1;
   /* overflow-y: auto; */
 }
-.open-fullscreen,
-.modal-close {
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 3px;
-  background-color: $stroke-color;
+@media all and (max-width: 950px) {
+  .modal-title {
+    font-size: 60px;
+  }
+  .modal-sub {
+    font-size: 20px;
+  }
+  .modal-type {
+    font-size: 18px;
+  }
+}
+@media all and (max-width: 750px) {
+  .modal-title {
+    font-size: 45px;
+  }
+  .modal-sub {
+    font-size: 15px;
+  }
+  .modal-type {
+    font-size: 13px;
+  }
+}
+@media all and (max-width: 520px) {
+  .modal-title {
+    font-size: 30px;
+  }
+  .modal-sub {
+    font-size: 10px;
+  }
+  .modal-type {
+    font-size: 8px;
+  }
 }
 </style>

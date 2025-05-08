@@ -74,7 +74,7 @@
   },
   {
     "pic": "cloneKBB.png",
-    "title": "Clone - 카카오브레인 블로그",
+    "title": "카카오브레인 블로그",
     "name": "Clonekbb",
     "sub": "클론코딩 - 카카오브레인 블로그",
     "type": "클론코딩",
@@ -92,7 +92,7 @@
   },
   {
     "pic": "cloneKG.png",
-    "title": "Clone - 카카오같이가치",
+    "title": "카카오같이가치",
     "name": "Clonekgg",
     "sub": "클론코딩 - 카카오같이가치",
     "type": "클론코딩",
@@ -110,10 +110,10 @@
     ]
   },
   {
-    "pic": "cloneKG.png",
+    "pic": "portfolio.png",
     "title": "Portfolio",
     "name": "Portfolio",
-    "sub": "개인 포트폴리오 제작",
+    "sub": "포트폴리오",
     "type": "개인 프로젝트",
     "tag": [
       "VUE",

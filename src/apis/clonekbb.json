@@ -1,0 +1,39 @@
+{
+  "intro": [
+    {
+      "desc": [
+        {
+          "text": [
+            "해당 사이트는 스터디용으로 제작되었으며, 모든 리소스의 저작권은 원저작자에게 있습니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": [
+            "html, css, js 스터디용 클론 코딩 이후 react 마이그레이션 진행"
+          ],
+          "strongIndex": []
+        }
+      ],
+      "shortcut": [
+        {
+          "title": "프로젝트 깃허브",
+          "icon": "octicon:mark-github",
+          "href": "https://github.com/2doh/blog-kakaobrain-2doh"
+        },
+        {
+          "title": "배포(vercel)",
+          "icon": "line-md:link",
+          "href": "https://blog-kakaobrain-2doh.vercel.app/"
+        }
+      ]
+    }
+  ],
+  "etc": [
+    {
+      "title": "원본 사이트",
+      "original": "https://together.kakao.com/",
+      "icon": "simple-icons:kakao"
+    }
+  ]
+}

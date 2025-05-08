@@ -22,6 +22,9 @@ import { computed, defineComponent } from "vue";
 import alot from "../../../apis/alot.json";
 import haesol from "../../../apis/haesol.json";
 import gv from "../../../apis/gv.json";
+import clonekbb from "../../../apis/clonekbb.json";
+import clonekgg from "../../../apis/clonekgg.json";
+import portfolio from "../../../apis/portfolio.json";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -43,6 +46,15 @@ export default defineComponent({
     }
     if (featureSelected.value === "gv") {
       initData = gv;
+    }
+    if (featureSelected.value === "clonekgg") {
+      initData = clonekgg;
+    }
+    if (featureSelected.value === "clonekbb") {
+      initData = clonekbb;
+    }
+    if (featureSelected.value === "portfolio") {
+      initData = portfolio;
     }
 
     const descData = computed(() => initData.intro[0].desc);

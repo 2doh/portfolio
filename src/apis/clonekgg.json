@@ -1,0 +1,38 @@
+{
+  "intro": [
+    {
+      "desc": [
+        {
+          "text": [
+            "해당 사이트는 스터디용으로 제작되었으며, 모든 리소스의 저작권은 원저작자에게 있습니다."
+          ],
+          "strongIndex": []
+        },
+        {
+          "text": ["html, css, js 스터디용 클론 코딩"],
+          "strongIndex": []
+        }
+      ],
+      "shortcut": [
+        {
+          "title": "프로젝트 깃허브",
+          "icon": "octicon:mark-github",
+          "href": "https://github.com/2doh/tkko"
+        },
+        {
+          "title": "배포(vercel)",
+          "icon": "line-md:link",
+          "href": "https://tkko.vercel.app/"
+        }
+      ]
+    }
+  ],
+  "etc": [
+    {
+      "title": "원본 사이트",
+      "original": "https://skunkworks.co.kr/posts/project/kakaobrain/",
+      "comment": "서비스 종료되어 대신 소개페이지 첨부합니다.",
+      "icon": "simple-icons:kakao"
+    }
+  ]
+}

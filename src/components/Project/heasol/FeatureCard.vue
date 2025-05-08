@@ -19,15 +19,15 @@
       </ul>
       <div class="btn-wrap">
         <button @click="isExpanded = !isExpanded" class="toggle-btn">
-          <span v-if="isExpanded">▲ 접기</span>
-          <span v-else>▼ 더보기</span>
+          <span class="btn-label" v-if="isExpanded">▲ 접기</span>
+          <span class="btn-label" v-else>▼ 더보기</span>
         </button>
         <button
           @click="nextImage"
           class="next-image-btn"
           v-if="currentData.subPic"
         >
-          다른 이미지 보기
+          <span class="btn-label">다른 이미지 보기</span>
         </button>
       </div>
     </div>
@@ -211,5 +211,27 @@ export default defineComponent({
   font-size: 0.9rem;
   cursor: pointer;
   font-size: 1rem;
+}
+@media all and (max-width: 700px) {
+  .card-wrap {
+    display: block;
+  }
+  .feature-list-wrap {
+    padding: 10px;
+  }
+  .feature-image {
+    width: 100%;
+  }
+  .feature-desc {
+    margin-right: 0;
+  }
+  .clamped {
+    display: none;
+  }
+}
+@media all and (max-width: 400px) {
+  .btn-label {
+    font-size: 12px;
+  }
 }
 </style>

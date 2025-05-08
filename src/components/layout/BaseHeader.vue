@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap no-select">
+  <div class="header-wrap no-select" ref="headerWrap">
     <div class="inner">
       <div class="header-title-wrap">
         <ul class="list-wrap">
@@ -35,6 +35,21 @@ export default {
       this.setTitle(item);
       setCookie("title", item);
     },
+    showLine(scY) {
+      const headerWrap = this.$refs.headerWrap;
+      const headerActiveClass = "sticky";
+      const headerActiveValue = 0;
+      if (headerWrap) {
+        if (scY > headerActiveValue) {
+          headerWrap.classList.add(headerActiveClass);
+        } else {
+          headerWrap.classList.remove(headerActiveClass);
+        }
+      }
+    },
+    handleScroll() {
+      this.showLine(window.scrollY);
+    },
   },
   data() {
     return {
@@ -50,6 +65,13 @@ export default {
         this.activeIndex = index;
       }
     }
+
+    this.showLine(window.scrollY);
+
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
@@ -63,8 +85,16 @@ export default {
   margin: 0 auto;
   height: 60px;
   @include flex-center();
+  background-color: white;
+  transition: top 0.3s ease;
+}
+.header-wrap.sticky {
+  position: fixed;
   border-bottom: 1px solid $stroke-color;
-  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 990;
 }
 .header-title-wrap {
   width: 100%;
@@ -72,8 +102,8 @@ export default {
 }
 .user-icon {
   background-color: gray;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   margin-right: 5px;
   border-radius: 50%;
 }

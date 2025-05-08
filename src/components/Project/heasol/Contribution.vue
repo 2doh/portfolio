@@ -131,4 +131,16 @@ export default defineComponent({
 .contribution-content strong {
   color: $primary-color;
 }
+
+@media all and (max-width: 600px) {
+  .contribution-wrap {
+    display: block;
+  }
+  .chart-container {
+    margin: 0 auto;
+  }
+  .contribution-content {
+    margin-top: 20px;
+  }
+}
 </style>

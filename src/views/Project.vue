@@ -85,7 +85,7 @@ export default defineComponent({
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 15px;
   width: 100%;
-  margin: 10px 0 10px;
+  /* margin: 10px 0 10px; */
 }
 @media all and (max-width: 450px) {
   .project-wrap {
