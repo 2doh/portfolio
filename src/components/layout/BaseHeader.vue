@@ -14,10 +14,10 @@
           </li>
         </ul>
       </div>
-      <div class="user-menu-wrap">
+      <!-- <div class="user-menu-wrap">
         <div class="user-icon"></div>
         <div class="hbr-image"></div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      title: ["프로필", "프로젝트", "학습기록"],
+      title: ["프로필", "프로젝트"],
       activeIndex: 0,
     };
   },
