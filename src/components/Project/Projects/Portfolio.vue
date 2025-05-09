@@ -4,6 +4,10 @@
       <ProjectTitle :title="titleArr" :index="0" />
       <IntroHaesol />
     </div>
+    <!-- <div class="result">
+      <ProjectTitle :title="titleArr" :index="1" />
+      <ProjectResult />
+    </div> -->
   </div>
 </template>
 
@@ -11,6 +15,7 @@
 import { defineComponent } from "vue";
 import ProjectTitle from "../ProjectTitle.vue";
 import IntroHaesol from "../heasol/IntroHaesol.vue";
+import ProjectResult from "../heasol/ProjectResult.vue";
 
 export default defineComponent({
   name: "Portfolio",
@@ -19,7 +24,7 @@ export default defineComponent({
     IntroHaesol,
   },
   setup() {
-    const titleArr = ["기획의도", "성과"];
+    const titleArr = ["소개 및 기획의도", "성과"];
     return { titleArr };
   },
 });
