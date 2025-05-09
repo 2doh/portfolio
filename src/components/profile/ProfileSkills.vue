@@ -91,8 +91,9 @@ export default defineComponent({
 .profile-skills-cate {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: flex-start;
+  /* justify-content: space-between; */
 }
 .profile-skills-cate-wrap {
   margin-top: 10px;
@@ -101,6 +102,7 @@ export default defineComponent({
   align-items: center;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  min-width: 100px;
 }
 .profile-skills-cate-wrap {
   .icon {

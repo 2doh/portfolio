@@ -48,7 +48,9 @@
     "skill": "TypeScript",
     "title": "TypeScript를 활용한 안정적인 코드 작성 경험이 있습니다.",
     "exp": {
-      "first": "1. 데이터 타입 지정을 통해 props, 함수, 매개변수 간 타입 충돌을 방지하였습니다."
+      "first": "1. 데이터 타입 지정을 통해 props, 함수, 매개변수 간 타입 충돌을 방지하였습니다.",
+      "second": "2. props나 API 응답 타입 정의 시 interface를 사용하여 의도를 명확히 표현하였습니다.",
+      "third": "3. firebase, zustand 등 라이브러리 사용 시 제공되는 타입 정의를 참고하여 정확한 타입 명시를 하였습니다."
     }
   },
   {
