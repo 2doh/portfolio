@@ -2,7 +2,13 @@
   <div class="card-wrap">
     <div class="card-inner">
       <div class="card-top">
-        <img class="card-idphoto" src="../../assets/image/300.jpg"></img>
+        <img
+          class="card-idphoto"
+          src="../../../src/assets/image/idphoto.webp"
+          loading="eager"
+          fetchpriority="high"
+          alt="프로필 사진"
+        />
       </div>
       <div class="card-bottom">
         <div class="card-title">INFO</div>
@@ -14,17 +20,21 @@
             </li>
             <li class="card-bottom-profile-list">
               <div class="card-subtitle">이메일</div>
-              <div class="card-content send-mail" @click="SendMailClick">
-                ldh0973@naver.com
-              </div>
+              <a
+                class="card-content send-mail"
+                href="mailto:ldh0973@naver.com"
+                rel="noopener noreferrer"
+              >
+                {{ profileData.email }}
+              </a>
             </li>
             <li class="card-bottom-profile-list">
               <div class="card-subtitle">전화번호</div>
-              <div class="card-content">010-6792-2898</div>
+              <div class="card-content">{{ profileData.phone }}</div>
             </li>
             <li class="card-bottom-profile-list">
               <div class="card-subtitle">주소</div>
-              <div class="card-content">대구 달서구 조암남로10길 21</div>
+              <div class="card-content">{{ profileData.home }}</div>
             </li>
           </ul>
         </div>
@@ -36,11 +46,13 @@
 <script>
 export default {
   name: "ProfileCard",
-  methods: {
-    SendMailClick() {
-      const email = "ldh0973@naver.com";
-      window.location.href = `mailto:${email}`;
-    },
+  setup() {
+    const profileData = {
+      email: "ldh0973@naver.com",
+      phone: "010-6792-2898",
+      home: "대구 달서구 조암남로10길 21",
+    };
+    return { profileData };
   },
 };
 </script>
@@ -49,11 +61,9 @@ export default {
 @import "/src/assets/styles/mixin";
 
 .card-wrap {
-  /* @include box-stroke(); */
   margin: 10px;
   min-width: 250px;
   height: auto;
-  /* max-height: 520px; */
 }
 .card-inner {
   padding: 3px;
@@ -62,9 +72,10 @@ export default {
 }
 .card-top {
   @include flex-center();
+  aspect-ratio: 5 / 6;
+  width: 100%;
 }
 .card-idphoto {
-  /* @include box-stroke(); */
   width: 100%;
   height: 100%;
   background: no-repeat center;
@@ -119,9 +130,6 @@ export default {
   }
 }
 @media all and (max-width: 500px) {
-  .card-top{
-
-  }
   .card-inner {
     display: block;
   }

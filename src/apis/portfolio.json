@@ -18,12 +18,10 @@
       "shortcut": [
         {
           "title": "프로젝트 깃허브",
-          "icon": "octicon:mark-github",
           "href": "https://github.com/2doh/portfolio"
         },
         {
           "title": "프로젝트 노션",
-          "icon": "mingcute:notion-fill",
           "href": "https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca"
         }
       ]

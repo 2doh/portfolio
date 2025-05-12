@@ -1,9 +1,9 @@
 <template>
-  <div class="profile-wrap">
+  <Spinner v-if="isLoading" class="spinner" />
+  <div v-else class="profile-wrap">
     <ProfileCard></ProfileCard>
     <div class="profile-inner">
       <div class="profile-top">
-        <!-- <ProfileCard></ProfileCard> -->
         <div class="profile-top-inner">
           <p class="profile-top-intro">
             <span class="intro-title">프론트엔드 개발자 이도현</span>
@@ -52,8 +52,8 @@
           </div>
           <div
             class="profile-bottom-resume"
-            v-for="(item, index) in history"
-            :key="index"
+            v-for="item in history"
+            :key="item.duration"
           >
             <div class="profile-bottom-resume-duration">
               {{ item.duration }}
@@ -103,54 +103,65 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 import ProfileCard from "@/components/profile/ProfileCard.vue";
 import ProfileSkills from "@/components/profile/ProfileSkills.vue";
 import ProfilePreference from "@/components/profile/ProfilePreference.vue";
 import ShortcutBtn from "@/components/common/ShortcutBtn.vue";
+import Spinner from "@/components/common/Spinner.vue";
+import notionIcon from "@/assets/icons/notion.svg";
+import gitIcon from "@/assets/icons/github.svg";
 
 export default defineComponent({
   name: "Profile",
-  components: { ProfileCard, ProfileSkills, ProfilePreference, ShortcutBtn },
-  setup() {
+  components: {
+    ProfileCard,
+    ProfileSkills,
+    ProfilePreference,
+    ShortcutBtn,
+    Spinner,
+  },
+  setup(_, { emit }) {
     const BtnArr = [
       {
         title: "작업 깃 바로가기",
-        icon: "octicon:mark-github",
+        icon: gitIcon,
         href: "https://github.com/2doh",
       },
       {
         title: "포트폴리오 제작기",
-        icon: "mingcute:notion-fill",
+        icon: notionIcon,
         href: "https://www.notion.so/16c2d6fcc50080f386f5c2de5fc180ca",
       },
     ];
-    return { BtnArr };
-  },
-  data() {
-    return {
-      history: [
-        {
-          duration: "2024.03 ~ 2024.09",
-          activity: "대구그린컴퓨터아트학원",
-          description:
-            "(KDT) React 개발자(Spring Back End 연동) 양성 과정 수료",
-          region: "대구",
-        },
-        {
-          duration: "2019.03 ~ 2023.03",
-          activity: "영남대학교",
-          description: "기계공학부 졸업",
-          region: "경북",
-        },
-        {
-          duration: "2017.03 ~ 2019.02",
-          activity: "영남이공대학교",
-          description: "기계과 졸업",
-          region: "대구",
-        },
-      ],
-    };
+
+    const history = ref([
+      {
+        duration: "2024.03 ~ 2024.09",
+        activity: "대구그린컴퓨터아트학원",
+        description: "(KDT) React 개발자(Spring Back End 연동) 양성 과정 수료",
+        region: "대구",
+      },
+      {
+        duration: "2019.03 ~ 2023.03",
+        activity: "영남대학교",
+        description: "기계공학부 졸업",
+        region: "경북",
+      },
+      {
+        duration: "2017.03 ~ 2019.02",
+        activity: "영남이공대학교",
+        description: "기계과 졸업",
+        region: "대구",
+      },
+    ]);
+
+    const isLoading = ref(true);
+    onMounted(() => {
+      isLoading.value = false;
+    });
+
+    return { BtnArr, history, isLoading };
   },
 });
 </script>
@@ -159,11 +170,14 @@ export default defineComponent({
 @import "/src/assets/styles/mixin";
 .profile-wrap {
   display: flex;
+
   width: 100%;
   height: 100%;
 }
 .profile-inner {
   width: 100%;
+  @include flex-center();
+  flex-direction: column;
 }
 .profile-top {
   width: 100%;
@@ -172,7 +186,6 @@ export default defineComponent({
 .profile-top-inner {
   max-width: 900px;
   margin: 10px;
-  /* min-height: 385px; */
 }
 .profile-top-intro {
   word-spacing: 1px;
@@ -202,8 +215,6 @@ span {
 .profile-bottom {
   margin: 10px;
   width: 100%;
-}
-.profile-bottom-container {
 }
 .profile-bottom-cate {
   display: flex;
@@ -258,17 +269,15 @@ span {
 @media all and (max-width: 768px) {
   .profile-wrap {
     flex-direction: column;
+    align-items: center;
   }
-  /* .profile-top {
-    flex-direction: column;
-  } */
   .profile-bottom-resume {
     gap: 10px;
   }
 }
 @media all and (max-width: 335px) {
   .intro-title {
-    font-size: 23px;
+    font-size: 1.5rem;
   }
 }
 .skills-etc-wrap {
@@ -280,8 +289,9 @@ span {
 .skills-to-notion {
   font-size: 20px;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 .skills-to-notion:hover {
-  color: blue;
+  color: #007bff;
 }
 </style>

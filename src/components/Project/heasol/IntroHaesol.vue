@@ -26,6 +26,8 @@ import clonekbb from "../../../apis/clonekbb.json";
 import clonekgg from "../../../apis/clonekgg.json";
 import portfolio from "../../../apis/portfolio.json";
 import { useStore } from "vuex";
+import notionIcon from "@/assets/icons/notion.svg";
+import gitIcon from "@/assets/icons/github.svg";
 
 export default defineComponent({
   name: "IntroHaesol",
@@ -58,7 +60,19 @@ export default defineComponent({
     }
 
     const descData = computed(() => initData.intro[0].desc);
-    const btnArr = computed(() => initData.intro[0].shortcut);
+    const btnData = computed(() => initData.intro[0].shortcut);
+    const btnArr = [
+      {
+        title: btnData.value[1].title,
+        icon: gitIcon,
+        href: btnData.value[1].href,
+      },
+      {
+        title: btnData.value[1].title,
+        icon: notionIcon,
+        href: btnData.value[1].href,
+      },
+    ];
 
     return { btnArr, descData };
   },

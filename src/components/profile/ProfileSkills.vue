@@ -4,7 +4,7 @@
       <div class="profile-skills-cate">
         <div
           v-for="(item, index) in iconArr"
-          :key="index"
+          :key="item.name"
           class="profile-skills-cate-wrap"
           :class="{
             active: selectedIndex === index,
@@ -12,24 +12,22 @@
           }"
           @click="handleClick(index)"
         >
-          <Icon
+          <img
             class="icon"
             :class="{
               active: selectedIndex === index,
               faded: selectedIndex !== index && selectedIndex !== null,
             }"
-            :icon="item.name"
+            :src="item.icon"
+            loading="lazy"
           />
           <p class="profile-skills-cate-title">{{ item.skill }}</p>
         </div>
       </div>
-      <div
-        class="profile-skills-desc"
-        v-if="selectedIndex !== null && skill[selectedIndex]"
-      >
-        <div v-if="selectedIndex !== null && skill[selectedIndex]">
+      <div class="profile-skills-desc" v-if="selectedSkill">
+        <div>
           <p class="profile-skills-desc-title">
-            {{ skill[selectedIndex].title }}
+            {{ skill[selectedIndex]?.title }}
           </p>
           <ul class="profile-skills-desc-content">
             <li class="profile-skills-desc-content-li">
@@ -49,31 +47,38 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import skills from "../../apis/skills.json";
-import { Icon } from "@iconify/vue";
+import reactIcon from "@/assets/icons/react.svg";
+import jsIcon from "@/assets/icons/js.svg";
+import gitIcon from "@/assets/icons/github.svg";
+import styledIcon from "@/assets/icons/styled.svg";
+import apiIcon from "@/assets/icons/api.svg";
+import htmlIcon from "@/assets/icons/html.svg";
+import typescriptIcon from "@/assets/icons/typescript.svg";
+import stateIcon from "@/assets/icons/redux.svg";
+import ideaIcon from "@/assets/icons/idea.svg";
 
 export default defineComponent({
-  components: { Icon },
   setup() {
     const iconArr = [
-      { name: "skill-icons:react-dark", skill: "ReactJS" },
-      { name: "devicon:javascript", skill: "JavaScript (ES6)" },
-      { name: "octicon:mark-github", skill: "Git / Github" },
-      { name: "vscode-icons:file-type-styled", skill: "Style" },
-      { name: "hugeicons:api", skill: "Rest API" },
-      { name: "devicon:html5-wordmark", skill: "HTML5" },
-      { name: "devicon:typescript", skill: "TypeScript" },
-      { name: "logos:redux", skill: "State" },
-      { name: "flat-color-icons:idea", skill: "Idea" },
+      { icon: reactIcon, skill: "ReactJS" },
+      { icon: jsIcon, skill: "JavaScript (ES6)" },
+      { icon: gitIcon, skill: "Git / Github" },
+      { icon: styledIcon, skill: "Style" },
+      { icon: apiIcon, skill: "Rest API" },
+      { icon: htmlIcon, skill: "HTML5" },
+      { icon: typescriptIcon, skill: "TypeScript" },
+      { icon: stateIcon, skill: "State" },
+      { icon: ideaIcon, skill: "Idea" },
     ];
     const skill = ref(skills);
     const selectedIndex = ref(0);
-
+    const selectedSkill = computed(() => skill.value[selectedIndex.value]);
     const handleClick = index => {
       selectedIndex.value = index;
     };
-    return { iconArr, skill, selectedIndex, handleClick };
+    return { iconArr, skill, selectedIndex, handleClick, selectedSkill };
   },
 });
 </script>
@@ -83,11 +88,7 @@ export default defineComponent({
   width: 100%;
   height: auto;
 }
-.profile-skills-container {
-  /* display: flex; */
-  /* flex-direction: column;
-  align-items: center; */
-}
+
 .profile-skills-cate {
   display: flex;
   flex-wrap: wrap;
@@ -100,6 +101,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: opacity 0.3s ease;
   min-width: 100px;
@@ -110,31 +112,11 @@ export default defineComponent({
     height: 40px;
     transition: width 0.3s ease;
   }
-
-  @media (max-width: 1024px) {
-    .icon {
-      width: 35px;
-      height: 35px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .icon {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .icon {
-      width: 25px;
-      height: 25px;
-    }
-  }
 }
 
 .profile-skills-cate-wrap.faded {
   opacity: 0.5;
+  height: 64px;
 }
 .profile-skills-cate-wrap.active {
   opacity: 1;
@@ -153,7 +135,9 @@ export default defineComponent({
 }
 .profile-skills-desc {
   margin-top: 20px;
+  transition: all 0.3s ease;
   min-height: 130px;
+  overflow-y: auto;
 }
 .profile-skills-desc-title {
   font-size: 21px;
@@ -166,5 +150,28 @@ export default defineComponent({
   font-weight: 500;
   font-size: 15px;
   line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+  .profile-skills-cate {
+    gap: 15px;
+  }
 }
 </style>

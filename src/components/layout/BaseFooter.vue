@@ -4,9 +4,13 @@
       <div class="footer-left">
         <div class="footer-title">이메일</div>
         <div class="footer-content">ldh0973@naver.com</div>
-        <button class="send-mail br20" @click="SendMailClick">
+        <a
+          class="send-mail br20"
+          href="mailto:ldh0973@naver.com"
+          rel="noopener noreferrer"
+        >
           메일보내기
-        </button>
+        </a>
       </div>
       <div class="footer-middle">
         <div class="footer-title">GitHub</div>
@@ -42,14 +46,7 @@
 <script>
 export default {
   name: "BaseFooter",
-  methods: {
-    SendMailClick(e) {
-      e.preventDefault();
-      // console.log("메일보내기");
-      const email = "ldh0973@naver.com";
-      window.location.href = `mailto:${email}`;
-    },
-  },
+  methods: {},
   data() {
     return {};
   },

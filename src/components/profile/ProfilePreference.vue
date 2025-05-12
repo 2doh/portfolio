@@ -32,5 +32,13 @@ export default defineComponent({
 .preference-inner-content {
   font-size: 17px;
   font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 </style>

@@ -5,18 +5,17 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <Icon :icon="data.icon" width="32" height="32" />
+    <img :src="data.icon" width="32" height="32" />
     <div class="title">{{ data?.title }}</div>
   </a>
 </template>
 
 <script>
-import { Icon } from "@iconify/vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ShortcutBtn",
-  components: { Icon },
+  components: {},
   props: {
     data: Object,
   },
