@@ -38,9 +38,8 @@ export default {
     showLine(scY) {
       const headerWrap = this.$refs.headerWrap;
       const headerActiveClass = "sticky";
-      const headerActiveValue = 0;
       if (headerWrap) {
-        if (scY > headerActiveValue) {
+        if (scY > 0) {
           headerWrap.classList.add(headerActiveClass);
         } else {
           headerWrap.classList.remove(headerActiveClass);

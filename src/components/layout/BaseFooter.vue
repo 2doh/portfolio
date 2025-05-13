@@ -62,9 +62,6 @@ export default {
   padding: 30px 0;
   margin: 0 auto;
 }
-.footer-left {
-  /* background-color: blue; */
-}
 .footer-title {
   font-weight: 700;
   font-size: 16px;
