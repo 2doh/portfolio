@@ -14,10 +14,6 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="user-menu-wrap">
-        <div class="user-icon"></div>
-        <div class="hbr-image"></div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -119,54 +115,9 @@ export default {
   cursor: pointer;
   transition: background-color 0.2s ease;
   font-weight: 500;
+  font-size: 20px;
 }
 .header-title.active {
   color: $primary-color;
-}
-.user-menu-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.hbr-image {
-  background: url("/src/assets/image/hbr_menu.png") no-repeat center;
-  width: 30px;
-  height: 30px;
-  background-size: contain;
-}
-@media all and (max-width: 768px) {
-  .user-icon {
-    display: none;
-  }
-}
-@media all and (max-width: 460px) {
-  .list-wrap {
-    gap: 10px;
-  }
-}
-@media all and (max-width: 420px) {
-  .header-title {
-    font-size: 15px;
-  }
-  .list-wrap {
-    gap: 5px;
-  }
-  .hbr-image {
-    width: 20px;
-    height: 20px;
-  }
-}
-@media all and (max-width: 375px) {
-  .header-title {
-    font-size: 12px;
-  }
-  .list-wrap {
-    gap: 5px;
-  }
-  .hbr-image {
-    width: 20px;
-    height: 20px;
-  }
 }
 </style>
