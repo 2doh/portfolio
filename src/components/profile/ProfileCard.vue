@@ -10,12 +10,9 @@
           alt="프로필 사진"
         /> -->
         <picture>
-          <source
-            srcset="../../assets/image/idphoto-300.webp"
-            media="(min-width: 771px)"
-          />
+          <source :srcset="idphotoSmall" media="(min-width: 771px)" />
           <img
-            src="../../assets/image/130.webp"
+            :src="idphotoLarge"
             alt="기본 이미지"
             fetchpriority="high"
             class="card-idphoto"
@@ -42,7 +39,9 @@
             </li>
             <li class="card-bottom-profile-list">
               <div class="card-subtitle">전화번호</div>
-              <div class="card-content">{{ profileData.phone }}</div>
+              <a class="card-content" href="tel:01067922898" title="전화걸기">
+                {{ profileData.phone }}
+              </a>
             </li>
             <li class="card-bottom-profile-list">
               <div class="card-subtitle">주소</div>
@@ -56,6 +55,9 @@
 </template>
 
 <script>
+import idphotoSmall from "@/assets/image/idphoto-300.webp";
+import idphotoLarge from "@/assets/image/130.webp";
+
 export default {
   name: "ProfileCard",
   setup() {
@@ -64,7 +66,7 @@ export default {
       phone: "010-6792-2898",
       home: "대구 달서구 조암남로10길 21",
     };
-    return { profileData };
+    return { profileData, idphotoSmall, idphotoLarge };
   },
 };
 </script>
