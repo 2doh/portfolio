@@ -19,8 +19,18 @@
       content="https://portfolio-nine-rho-75.vercel.app/ogimage.webp"
     />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <link rel="preload" as="image" href="/image/130.webp" />
-    <link rel="preload" as="image" href="/image/idphoto-300.webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="/image/idphoto-300.webp"
+      media="(min-width: 771px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/image/130.webp"
+      media="(max-width: 770px)"
+    />
     <link
       rel="preload"
       href="/fonts/pretendard-regular.woff2"

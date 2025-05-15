@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-top">
+  <div class="profile-top" fetchpriority="high">
     <div class="profile-top-inner">
       <p class="profile-top-intro">
         <span class="intro-title">프론트엔드 개발자 이도현</span>
