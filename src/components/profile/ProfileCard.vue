@@ -8,10 +8,7 @@
             alt="기본 이미지"
             fetchpriority="high"
             class="card-idphoto"
-            width="300"
-            height="360"
             loading="eager"
-            importance="high"
           />
         </picture>
       </div>
