@@ -85,7 +85,7 @@ export default defineComponent({
 }
 .primary {
   font-weight: 700;
-  color: $primary-color;
+  color: $highlight-color;
 }
 p,
 span {

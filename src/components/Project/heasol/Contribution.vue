@@ -99,7 +99,7 @@ export default defineComponent({
   transform: translate(-50%, -50%);
   font-size: 20px;
   font-weight: bold;
-  color: $primary-color;
+  color: $highlight-color;
 }
 
 .contribution-content {
@@ -129,7 +129,7 @@ export default defineComponent({
 }
 
 .contribution-content strong {
-  color: $primary-color;
+  color: $highlight-color;
 }
 
 @media all and (max-width: 600px) {
