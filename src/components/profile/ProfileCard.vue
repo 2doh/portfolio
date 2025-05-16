@@ -2,24 +2,15 @@
   <div class="card-wrap">
     <div class="card-inner">
       <div class="card-top">
-        <!-- <img
-          class="card-idphoto"
-          src="../../../src/assets/image/idphoto-500.webp"
-          loading="eager"
+        <img
+          src="/image/idphoto-300.webp"
+          alt="기본 이미지"
           fetchpriority="high"
-          alt="프로필 사진"
-        /> -->
-        <picture>
-          <source srcset="/image/130.webp" media="(max-width: 770px)" />
-          <img
-            src="/image/idphoto-300.webp"
-            alt="기본 이미지"
-            fetchpriority="high"
-            class="card-idphoto"
-            width="300"
-            height="360"
-          />
-        </picture>
+          class="card-idphoto"
+          width="300"
+          height="360"
+          loading="eager"
+        />
       </div>
       <div class="card-bottom">
         <div class="card-title">INFO</div>
@@ -87,6 +78,7 @@ export default {
   @include flex-center();
   aspect-ratio: 5 / 6;
   width: 100%;
+  max-height: 350px;
 }
 .card-idphoto {
   width: 100%;
