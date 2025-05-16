@@ -14,6 +14,7 @@
         >
           <img
             class="icon"
+            alt="icon"
             :class="{
               active: selectedIndex === index,
               faded: selectedIndex !== index && selectedIndex !== null,

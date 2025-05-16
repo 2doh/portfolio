@@ -1,6 +1,11 @@
 <template>
   <div class="card-wrap margin-top-10">
-    <img :src="currentImage" class="feature-image" @click="ModalOpen" />
+    <img
+      :src="currentImage"
+      alt="기능사진"
+      class="feature-image"
+      @click="ModalOpen"
+    />
     <div class="feature-desc margin-top-10">
       <ul class="feature-list-wrap" :class="{ clamped: !isExpanded }">
         <li
@@ -34,7 +39,7 @@
   </div>
   <div v-if="isModalOpen" class="modal" @click="modalClose">
     <div class="modal-content" @click.stop>
-      <img :src="currentImage" class="modal-image" />
+      <img :src="currentImage" alt="기능사진" class="modal-image" />
     </div>
   </div>
 </template>

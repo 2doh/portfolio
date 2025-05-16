@@ -5,7 +5,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img :src="data.icon" width="32" height="32" />
+    <img :src="data.icon" alt="icon" width="32" height="32" />
     <div class="title">{{ data?.title }}</div>
   </a>
 </template>

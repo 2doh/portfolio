@@ -5,6 +5,7 @@
         :src="
           projects.pic ? require(`../../assets/image/${projects.pic}`) : null
         "
+        alt="프로젝트 사진"
         class="projectcard-top"
       />
       <div class="projectcard-bottom">
