@@ -118,13 +118,10 @@ export default defineComponent({
 
     const isLoading = ref(true);
 
-    // onMounted(() => {
-    //   isLoading.value = false;
-    // });
     onMounted(() => {
-      setTimeout(() => {
+      requestIdleCallback(() => {
         isLoading.value = false;
-      }, 500);
+      });
     });
 
     return { BtnArr, history, isLoading };

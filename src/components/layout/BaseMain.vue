@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { ref } from "vue";
 import Profile from "../../views/Profile.vue";
 import { mapGetters } from "vuex";
 import Project from "@/views/Project.vue";

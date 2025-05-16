@@ -10,12 +10,14 @@
           alt="프로필 사진"
         /> -->
         <picture>
-          <source :srcset="idphotoSmall" media="(min-width: 771px)" />
+          <source srcset="/image/130.webp" media="(max-width: 770px)" />
           <img
-            :src="idphotoLarge"
+            src="/image/idphoto-300.webp"
             alt="기본 이미지"
             fetchpriority="high"
             class="card-idphoto"
+            width="300"
+            height="360"
           />
         </picture>
       </div>
@@ -55,9 +57,6 @@
 </template>
 
 <script>
-import idphotoSmall from "@/assets/image/idphoto-300.webp";
-import idphotoLarge from "@/assets/image/130.webp";
-
 export default {
   name: "ProfileCard",
   setup() {
@@ -66,7 +65,7 @@ export default {
       phone: "010-6792-2898",
       home: "대구 달서구 조암남로10길 21",
     };
-    return { profileData, idphotoSmall, idphotoLarge };
+    return { profileData };
   },
 };
 </script>
@@ -138,6 +137,9 @@ export default {
     justify-content: space-between;
     gap: 20px;
   }
+  .card-idphoto {
+    max-height: 350px;
+  }
   .card-bottom {
     min-width: 235px;
     min-height: 172px;
@@ -146,6 +148,9 @@ export default {
 @media all and (max-width: 500px) {
   .card-inner {
     display: block;
+  }
+  .card-top {
+    max-height: 350px;
   }
   .card-wrap {
     width: 100%;
