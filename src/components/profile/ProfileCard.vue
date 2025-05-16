@@ -2,15 +2,18 @@
   <div class="card-wrap">
     <div class="card-inner">
       <div class="card-top">
-        <img
-          src="/image/idphoto-300.webp"
-          alt="기본 이미지"
-          fetchpriority="high"
-          class="card-idphoto"
-          width="300"
-          height="360"
-          loading="eager"
-        />
+        <picture>
+          <img
+            src="/image/idphoto-300.webp"
+            alt="기본 이미지"
+            fetchpriority="high"
+            class="card-idphoto"
+            width="300"
+            height="360"
+            loading="eager"
+            importance="high"
+          />
+        </picture>
       </div>
       <div class="card-bottom">
         <div class="card-title">INFO</div>
