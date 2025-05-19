@@ -2,7 +2,7 @@
   "feature": [
     {
       "title": "화이트 보드",
-      "pic": "gvtest.png",
+      "pic": "gvtest.webp",
       "type": "whiteboard",
       "desc": [
         {
@@ -31,7 +31,7 @@
     },
     {
       "title": "인증기능",
-      "pic": "gvauth.png",
+      "pic": "gvauth.webp",
       "type": "auth",
       "desc": [
         {

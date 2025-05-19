@@ -2,8 +2,8 @@
   "feature": [
     {
       "title": "인증기능",
-      "pic": "haesolLogin.png",
-      "subPic": "haesolSignup.png",
+      "pic": "haesolLogin.webp",
+      "subPic": "haesolSignup.webp",
       "type": "auth",
       "desc": [
         {
@@ -48,7 +48,7 @@
     },
     {
       "title": "성적열람",
-      "pic": "haesolChart.png",
+      "pic": "haesolChart.webp",
       "type": "grade",
       "desc": [
         {
@@ -74,8 +74,8 @@
     },
     {
       "title": "단어장",
-      "pic": "haesolwordtest.png",
-      "subPic": "haesolwordui.png",
+      "pic": "haesolwordtest.webp",
+      "subPic": "haesolwordui.webp",
       "type": "voca",
       "desc": [
         {
@@ -111,7 +111,7 @@
     },
     {
       "title": "공용 컴포넌트 및 기능",
-      "pic": "haesolcommonfeature.png",
+      "pic": "haesolcommonfeature.webp",
       "type": "component",
       "desc": [
         {

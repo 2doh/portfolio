@@ -2,7 +2,7 @@
   "feature": [
     {
       "title": "체크리스트",
-      "pic": "alotchecklist.png",
+      "pic": "alotchecklist.webp",
       "type": "checklist",
       "desc": [
         {
@@ -31,7 +31,7 @@
     },
     {
       "title": "홈 배너",
-      "pic": "alotbanner.png",
+      "pic": "alotbanner.webp",
       "type": "banner",
       "desc": [
         {
