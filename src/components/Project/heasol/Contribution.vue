@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { ArcElement, Legend, Title, Tooltip, Chart as ChartJS } from "chart.js";
 import { computed, defineComponent } from "vue";
 import { Doughnut } from "vue-chartjs";
 import alot from "../../../apis/alot.json";
