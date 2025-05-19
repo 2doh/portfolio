@@ -34,21 +34,6 @@
             <div class="profile-bottom-title">기술</div>
           </div>
           <ProfileSkills></ProfileSkills>
-          <div class="skills-etc-wrap">
-            <div class="skills-etc-inner">
-              <p class="skills-etc-content">
-                그 외에도 JWT, Custom Hook, React Hook Form 등 다양한 라이브러리
-                및 기술에 대한 자세한 내용은
-                <a
-                  href="https://www.notion.so/08aa25a565ad4180a8fffd343a46d006"
-                  target="_blank"
-                  class="skills-to-notion"
-                >
-                  여기</a
-                >에서 확인할 수 있습니다.
-              </p>
-            </div>
-          </div>
         </div>
         <div class="profile-bottom-shortcut-wrap">
           <ShortcutBtn
@@ -207,19 +192,5 @@ span {
   .profile-bottom-resume {
     gap: 10px;
   }
-}
-.skills-etc-wrap {
-  margin-top: 10px;
-}
-.skills-etc-content {
-  font-size: 17px;
-}
-.skills-to-notion {
-  font-size: 20px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.skills-to-notion:hover {
-  color: #007bff;
 }
 </style>
