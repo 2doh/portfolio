@@ -69,6 +69,7 @@ export default defineComponent({
 .profile-top-intro {
   word-spacing: 1px;
   line-height: 25px;
+  word-break: keep-all;
 }
 .intro-title {
   font-size: 25px;

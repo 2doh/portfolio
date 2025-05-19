@@ -1,37 +1,31 @@
 <template>
   <div>
     <div class="modal-button-wrap" ref="headerWrap">
-      <Icon
-        icon="line-md:arrows-diagonal-rotated"
-        width="24"
-        height="24"
+      <img
         class="open-fullscreen"
+        :src="btnArr.expanded"
         @click="handleExpansion"
       />
-      <Icon
-        icon="material-symbols:close"
-        width="24"
-        height="24"
-        class="modal-close"
-        @click="handleModalClose"
-        >닫기</Icon
-      >
+      <img :src="btnArr.close" class="modal-close" @click="handleModalClose" />
     </div>
   </div>
 </template>
 
 <script>
-import { Icon } from "@iconify/vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
+import close from "@/assets/icons/close.svg";
+import expanded from "@/assets/icons/expanded.svg";
 
 export default defineComponent({
   name: "ModalHeader",
-  components: { Icon },
+  components: {},
   props: {
     scrollTarget: Object,
   },
   emits: ["toggleFullscreen", "modalClose"],
   setup(props, { emit }) {
+    const btnArr = { close, expanded };
+
     const headerWrap = ref(null);
 
     const handleExpansion = () => emit("toggleFullscreen");
@@ -66,7 +60,7 @@ export default defineComponent({
       }
     });
 
-    return { headerWrap, handleExpansion, handleModalClose };
+    return { headerWrap, handleExpansion, handleModalClose, btnArr };
   },
 });
 </script>
@@ -82,7 +76,7 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  z-index: 99999;
+  z-index: 99;
 }
 .modal-button-wrap.sticky {
   border-radius: 10px;
@@ -94,6 +88,8 @@ export default defineComponent({
 }
 .open-fullscreen,
 .modal-close {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   border-radius: 50%;
   padding: 3px;

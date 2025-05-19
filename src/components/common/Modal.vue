@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { Icon } from "@iconify/vue";
 import {
   computed,
   defineComponent,
@@ -62,7 +61,6 @@ import ModalHeader from "./ModalHeader.vue";
 export default defineComponent({
   name: "Modal",
   components: {
-    Icon,
     Haesol,
     Alot,
     GV,

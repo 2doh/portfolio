@@ -79,13 +79,10 @@ export default {
 }
 .card-top {
   @include flex-center();
-  aspect-ratio: 5 / 6;
-  width: 100%;
-  max-height: 350px;
 }
 .card-idphoto {
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 320px;
   background: no-repeat center;
   background-size: cover;
   object-fit: cover;
