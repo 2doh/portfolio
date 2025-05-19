@@ -5,8 +5,14 @@
         class="open-fullscreen"
         :src="btnArr.expanded"
         @click="handleExpansion"
+        alt="확장버튼"
       />
-      <img :src="btnArr.close" class="modal-close" @click="handleModalClose" />
+      <img
+        alt="닫기버튼"
+        :src="btnArr.close"
+        class="modal-close"
+        @click="handleModalClose"
+      />
     </div>
   </div>
 </template>

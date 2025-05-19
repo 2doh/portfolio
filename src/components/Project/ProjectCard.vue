@@ -74,6 +74,7 @@ span {
   background: no-repeat center;
   background-size: cover;
   object-fit: cover;
+  aspect-ratio: 16/9;
 }
 .projectcard-bottom {
   padding: 5px;
