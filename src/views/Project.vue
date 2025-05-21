@@ -25,8 +25,7 @@
       v-if="selectedProject"
       :modalData="selectedProject"
       @modalClose="modalClose"
-    >
-    </Modal>
+    />
   </div>
 </template>
 
