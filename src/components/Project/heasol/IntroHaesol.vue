@@ -63,9 +63,9 @@ export default defineComponent({
     const btnData = computed(() => initData.intro[0].shortcut);
     const btnArr = [
       {
-        title: btnData.value[1].title,
+        title: btnData.value[0].title,
         icon: gitIcon,
-        href: btnData.value[1].href,
+        href: btnData.value[0].href,
       },
       {
         title: btnData.value[1].title,
